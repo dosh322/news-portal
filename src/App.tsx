@@ -1,14 +1,23 @@
-import React from 'react';
-import Counter from "./components/Counter";
+import { Outlet } from "react-router-dom";
 
-import "./index.scss";
+import "./styles/index.scss";
+import { Suspense, useContext } from "react";
+import ThemeProvider from "./theme/ThemeProvider";
+import { Theme, ThemeContext } from "./theme/ThemeContext";
+import { useTheme } from "./theme/useTheme";
 
 function App() {
+    const { theme, toggleTheme } = useTheme();
+
     return (
-        <div className="app">
-            ljkhgklhgjkh
-            <Counter />
-        </div>
+            <div className={`app ${theme === Theme.DARK ? 'app-dark-theme' : 'app-light-theme'}`}>
+                <button type="button" onClick={toggleTheme}>TOGGLE THEME</button>
+                <div>HEADER</div>
+                <div>NAVBAR</div>
+                <Suspense fallback={"Loading ..."}>
+                    <Outlet />
+                </Suspense>
+            </div>
     );
 }
 

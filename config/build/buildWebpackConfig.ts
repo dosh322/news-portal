@@ -14,6 +14,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
          filename: "[name].[contenthash].js", // contenthash для генерации хэша бандла. браузеры кэшируют файлы и чтобы при новой версии проекта браузер не отдавал прошлый файл, можно добавить хэш
          path: paths.build,
          clean: true, // удалять прошлые файлы при новой сборке
+         publicPath: '/',
      },
      plugins: buildPlugins(options),
      module: {
