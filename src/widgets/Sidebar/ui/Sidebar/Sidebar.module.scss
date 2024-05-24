@@ -1,0 +1,41 @@
+.Sidebar {
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--secondary-color);
+    border-right: 1px solid var(--border-color);
+    transition: width 0.3s;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    justify-content: space-between;
+}
+
+.toggleButton {
+    width: 60px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.switchers {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    gap: 12px;
+    margin-left: auto;
+    justify-content: end;
+}
+
+.ThemeSwitcher {
+    line-height: 0;
+}
+
+.langSwitcher {
+    min-width: 60px;
+    color: var(--primary-color);
+}

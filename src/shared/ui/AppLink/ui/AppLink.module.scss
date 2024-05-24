@@ -1,0 +1,10 @@
+.AppLink {
+    color: var(--primary-color);
+    transition: transform .2s ease,color .2s ease;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        transform: translateY(-5px);
+    }
+}

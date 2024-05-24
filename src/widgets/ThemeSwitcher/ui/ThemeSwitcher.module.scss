@@ -1,0 +1,22 @@
+.dark-theme-logo,
+.light-theme-logo {
+    path {
+        transition: fill .5s;
+    }
+}
+
+.dark-theme-logo {
+    &:hover {
+        path {
+            fill: #ecbe08;
+        }
+    }
+}
+
+.light-theme-logo {
+    &:hover {
+        path {
+            fill: #3b386e;
+        }
+    }
+}
