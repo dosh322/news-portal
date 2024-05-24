@@ -1,7 +1,4 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
- */
+import path from "path";
 
 export default {
     // All imported modules in your tests should be mocked automatically
@@ -66,11 +63,16 @@ export default {
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: ["node_modules"],
 
+    modulePaths: ["<rootDir>src"],
+
     // An array of file extensions your modules use
     moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
+    moduleNameMapper: {
+        "\\.s?css$": "identity-obj-proxy",
+        "\\.svg": path.resolve(__dirname, "emptyReactComponent.tsx"),
+    },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],
@@ -117,7 +119,7 @@ export default {
     // setupFiles: [],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    // setupFilesAfterEnv: [],
+    setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.
     // slowTestThreshold: 5,

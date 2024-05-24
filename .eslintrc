@@ -27,7 +27,7 @@
         "plugin:i18next/recommended",
         "prettier"
     ],
-    "plugins": ["import", "@typescript-eslint", "react", "react-hooks", "react-refresh", "i18next", "prettier", "jest"],
+    "plugins": ["import", "@typescript-eslint", "react", "react-hooks", "react-refresh", "i18next", "prettier", "jest", "testing-library"],
     "rules": {
         "react-refresh/only-export-components": "warn",
         "linebreak-style": 0,
@@ -83,9 +83,17 @@
         "import/no-unresolved": "off",
         "import/prefer-default-export": "off",
         "import/extensions": "off",
-        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "./config/**/*"] }],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "./config/**/*", "**/*/renderWithTranslations/**/*"] }],
         "import/named": "off",
         "import/no-named-as-default-member": "off",
-        "i18next/no-literal-string": ["error", { "markupOnly": true }]
-    }
+        "i18next/no-literal-string": ["error", { "markupOnly": true, "ignoreAttribute": ["data-testid"] }]
+    },
+    "overrides": [
+        {
+            "files": ["**/src/**/*.test.{ts,tsx}"],
+            "rules": {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 }
