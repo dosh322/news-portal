@@ -83,7 +83,7 @@
         "import/no-unresolved": "off",
         "import/prefer-default-export": "off",
         "import/extensions": "off",
-        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "./config/**/*", "**/*/renderWithTranslations/**/*"] }],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "./config/**/*", "**/*/renderWithTranslations/**/*"] }],
         "import/named": "off",
         "import/no-named-as-default-member": "off",
         "i18next/no-literal-string": ["error", { "markupOnly": true, "ignoreAttribute": ["data-testid"] }]
