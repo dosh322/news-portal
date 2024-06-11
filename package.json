@@ -14,7 +14,7 @@
     "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "chromatic": "npx chromatic --project-token=chpt_8645dfaba6f97c4"
+    "chromatic": "npx chromatic"
   },
   "author": "",
   "license": "ISC",
