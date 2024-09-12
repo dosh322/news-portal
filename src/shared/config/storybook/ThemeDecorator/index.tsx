@@ -6,7 +6,7 @@ export const ThemeDecorator = (theme: Theme) =>
     function ThemeDecoratorComponent(Story: StoryFn) {
         return (
             <ThemeProvider initialTheme={theme}>
-                <div className={clsx("app", `app-${theme}-theme`)}>
+                <div className={clsx("app", theme)}>
                     <Story />
                 </div>
             </ThemeProvider>
