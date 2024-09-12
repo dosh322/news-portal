@@ -2,16 +2,14 @@ import { PropsWithChildren, useMemo, useState } from "react";
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
 
 interface Props {
-    defaultTheme?: Theme;
+    initialTheme?: Theme;
 }
 
-function ThemeProvider({
-    children,
-    defaultTheme = Theme.LIGHT,
-}: PropsWithChildren<Props>) {
-    const initialTheme =
-        (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || defaultTheme;
-    const [theme, setTheme] = useState<Theme>(initialTheme);
+const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+
+function ThemeProvider({ children, initialTheme }: PropsWithChildren<Props>) {
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
     const defaultProps = useMemo(
         () => ({

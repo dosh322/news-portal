@@ -17,7 +17,7 @@ interface SidebarProps {
 
 function Sidebar({ className }: SidebarProps) {
     const [isCollapsed, setIsCollapsed] = useState(false);
-    const { t } = useTranslation("shared");
+    const { t } = useTranslation();
 
     const handleToggle = () => {
         setIsCollapsed((prev) => !prev);

@@ -1,3 +1,4 @@
+import { Counter } from "entities/Counter";
 import { useTranslation } from "react-i18next";
 
 function HomePage() {
@@ -6,6 +7,7 @@ function HomePage() {
     return (
         <div>
             <h1>{t("home page")}</h1>
+            <Counter />
         </div>
     );
 }

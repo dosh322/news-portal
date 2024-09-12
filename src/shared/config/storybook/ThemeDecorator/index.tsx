@@ -5,7 +5,7 @@ import clsx from "clsx";
 export const ThemeDecorator = (theme: Theme) =>
     function ThemeDecoratorComponent(Story: StoryFn) {
         return (
-            <ThemeProvider defaultTheme={theme}>
+            <ThemeProvider initialTheme={theme}>
                 <div className={clsx("app", `app-${theme}-theme`)}>
                     <Story />
                 </div>

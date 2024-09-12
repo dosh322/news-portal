@@ -1,26 +1,16 @@
-import { Theme, useTheme } from "app/providers/ThemeProvider";
 import clsx from "clsx";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "widgets/Navbar";
 import { PageLoader } from "widgets/PageLoader";
 import { Sidebar } from "widgets/Sidebar";
-import "./styles/index.scss";
+import { useTheme } from "./providers/ThemeProvider";
 
 function App() {
     const { theme } = useTheme();
 
-    // useEffect(() => {
-    //     throw new Error();
-    // }, []);
-
     return (
-        <div
-            className={clsx("app", {
-                "app-light-theme": theme === Theme.LIGHT,
-                "app-dark-theme": theme === Theme.DARK,
-            })}
-        >
+        <div className={clsx("app", theme)}>
             <Suspense fallback={"Loading translations..."}>
                 <Navbar />
                 <div className="content-wrapper">

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 function AboutPage() {
-    const { t, i18n } = useTranslation("about");
+    const { t } = useTranslation("about");
 
     return (
         <div>

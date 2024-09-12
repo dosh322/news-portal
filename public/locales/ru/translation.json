@@ -4,5 +4,7 @@
   "home page": "Главная",
   "about page": "О сайте",
   "unknown error": "Неизвестная ошибка",
-  "Reload page": "Обновить страницу"
+  "Reload page": "Обновить страницу",
+  "toggle": "переключить",
+  "login": "Войти"
 }
