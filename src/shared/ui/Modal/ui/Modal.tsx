@@ -15,12 +15,14 @@ interface Props {
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
 
-function Modal({ className, children, isOpen, onClose }: PropsWithChildren<Props>) {
+function Modal({ className, children, isOpen, onClose, lazy }: PropsWithChildren<Props>) {
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<NodeJS.Timeout>();
     const { theme } = useTheme();
 
@@ -49,6 +51,16 @@ function Modal({ className, children, isOpen, onClose }: PropsWithChildren<Props
 
     useEffect(() => {
         if (isOpen) {
+            setIsMounted(true);
+        }
+
+        return () => {
+            setIsMounted(false);
+        };
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
             document.addEventListener("keydown", handleKeyDown);
         }
 
@@ -57,6 +69,10 @@ function Modal({ className, children, isOpen, onClose }: PropsWithChildren<Props
             document.removeEventListener("keydown", handleKeyDown);
         };
     }, [isOpen, handleKeyDown]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

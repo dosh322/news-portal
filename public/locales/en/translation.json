@@ -6,5 +6,6 @@
   "unknown error": "Unknown Error",
   "Reload page": "Reload page",
   "toggle": "toggle",
-  "login": "Log in"
+  "login": "Log in",
+    "defaultPlaceholder": "Type text..."
 }

@@ -17,12 +17,16 @@ function Counter() {
     return (
         <div>
             <h2>{value}</h2>
-            <Button theme={ButtonTheme.OUTLINE} onClick={inc} data-testid="increment-btn">
-                inc
-            </Button>
-            <Button theme={ButtonTheme.OUTLINE} onClick={dec} data-testid="decrement-btn">
-                dec
-            </Button>
+            <Button
+                theme={ButtonTheme.OUTLINE}
+                onClick={inc}
+                data-testid="increment-btn"
+            ></Button>
+            <Button
+                theme={ButtonTheme.OUTLINE}
+                onClick={dec}
+                data-testid="decrement-btn"
+            ></Button>
         </div>
     );
 }

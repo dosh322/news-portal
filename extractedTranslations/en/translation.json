@@ -4,11 +4,16 @@
   "Reload page": "Reload page",
   "about page": "about page",
   "backBtn": "backBtn",
+  "defaultPlaceholder": "defaultPlaceholder",
   "home page": "",
   "language": "",
+  "log in": "log in",
   "login": "login",
+  "password": "password",
+  "sign in": "sign in",
   "toggle": "toggle",
   "unknown error": "unknown error",
   "update ": "update ",
+  "username": "username",
   "Войти": "Войти"
 }

@@ -18,4 +18,4 @@ export const counterSlice = createSlice({
     },
 });
 
-export const { actions: counterActions, reducer: counterReduces } = counterSlice;
+export const { actions: counterActions, reducer: counterReducer } = counterSlice;

@@ -6,5 +6,6 @@
   "unknown error": "Неизвестная ошибка",
   "Reload page": "Обновить страницу",
   "toggle": "переключить",
-  "login": "Войти"
+  "login": "Войти",
+  "defaultPlaceholder": "Введите текст..."
 }
