@@ -7,5 +7,6 @@
   "Reload page": "Reload page",
   "toggle": "toggle",
   "login": "Log in",
-    "defaultPlaceholder": "Type text..."
+  "defaultPlaceholder": "Type text...",
+  "logout": "Log out"
 }

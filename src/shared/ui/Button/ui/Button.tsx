@@ -30,6 +30,7 @@ function Button({
     theme = ButtonTheme.CLEAR,
     square = false,
     size = ButtonSize.M,
+    disabled,
     ...buttonProps
 }: PropsWithChildren<ButtonProps>) {
     return (
@@ -42,6 +43,7 @@ function Button({
                 classes[theme],
                 square && classes.square,
                 classes[size],
+                disabled && classes.disabled,
             )}
             {...buttonProps}
         >

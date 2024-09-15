@@ -1,7 +1,13 @@
 .app-light-theme {
-    --bg-color: #FFF; // фон
-    --primary-color: #23272F; // текст
-    --secondary-color: #F0F1F4; // шапка
-    --tertiary-color: #BFC2C7; // основной текст
-    --border-color: #E9E9EA;
+    --bg-color: #e8e8ea;
+    --inverted-bg-color: #090949;
+    --primary-color: #0232c2;
+    --secondary-color: #0452ff;
+    --inverted-primary-color: #04ff04;
+    --inverted-secondary-color: #049604;
+    --skeleton-color: #fff;
+    --skeleton-shadow: #808080;
+    --code-bg: #fbf4f6;
+    --card-bg: #fbf4f6;
+    --listbox-bg: #fbf4f6;
 }

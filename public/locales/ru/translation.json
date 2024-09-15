@@ -7,5 +7,6 @@
   "Reload page": "Обновить страницу",
   "toggle": "переключить",
   "login": "Войти",
-  "defaultPlaceholder": "Введите текст..."
+  "defaultPlaceholder": "Введите текст...",
+  "logout": "Выйти"
 }
