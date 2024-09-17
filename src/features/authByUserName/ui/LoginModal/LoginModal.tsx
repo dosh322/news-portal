@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { Modal } from "shared/ui/Modal";
-import { LoginForm } from "../LoginForm/LoginForm";
+import { Spinner } from "shared/ui/Spinner";
+import { LoginFormLazy } from "../LoginForm/LoginForm.lazy";
 
 interface Props {
     className?: string;
@@ -10,7 +12,9 @@ interface Props {
 function LoginModal({ className, isOpen, onClose }: Props) {
     return (
         <Modal className={className} isOpen={isOpen} onClose={onClose} lazy>
-            <LoginForm />
+            <Suspense fallback={<Spinner />}>
+                <LoginFormLazy />
+            </Suspense>
         </Modal>
     );
 }

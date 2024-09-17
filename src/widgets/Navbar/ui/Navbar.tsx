@@ -54,7 +54,9 @@ function Navbar({ className }: NavbarProps) {
             >
                 {t("login")}
             </Button>
-            <LoginModal onClose={handleModalClose} isOpen={isAuthModalOpen} />
+            {isAuthModalOpen && (
+                <LoginModal onClose={handleModalClose} isOpen={isAuthModalOpen} />
+            )}
         </nav>
     );
 }
