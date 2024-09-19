@@ -1,5 +1,6 @@
 import { Theme, useTheme } from "app/providers/ThemeProvider";
 import clsx from "clsx";
+import { memo } from "react";
 import DarkThemeIcon from "shared/assets/icons/dark-theme-icon.svg";
 import LightThemeIcon from "shared/assets/icons/light-theme-icon.svg";
 import { Button } from "shared/ui/Button";
@@ -9,7 +10,7 @@ interface ThemeSwitcherProps {
     className?: string;
 }
 
-function ThemeSwitcher({ className }: ThemeSwitcherProps) {
+const ThemeSwitcher = memo(function ThemeSwitcher({ className }: ThemeSwitcherProps) {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -28,6 +29,6 @@ function ThemeSwitcher({ className }: ThemeSwitcherProps) {
             )}
         </Button>
     );
-}
+});
 
 export { ThemeSwitcher };

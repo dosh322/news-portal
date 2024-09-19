@@ -12,6 +12,7 @@
   "login": "login",
   "logout": "logout",
   "password": "password",
+  "profilePage": "profilePage",
   "sign in": "sign in",
   "toggle": "toggle",
   "unknown error": "unknown error",

@@ -16,7 +16,6 @@
 }
 
 .background, .backgroundInverted {
-    color: var(--primary-color);
     border: 1px solid var(--primary-color);
 }
 
@@ -25,7 +24,8 @@
 }
 
 .backgroundInverted {
-    background: var(--secondary-color);
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
 }
 
 .square {

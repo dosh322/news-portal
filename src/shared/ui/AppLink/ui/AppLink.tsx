@@ -1,6 +1,6 @@
 import { Theme, useTheme } from "app/providers/ThemeProvider";
 import clsx from "clsx";
-import { PropsWithChildren } from "react";
+import { memo, PropsWithChildren } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import classes from "./AppLink.module.scss";
 
@@ -13,7 +13,7 @@ interface AppLinkProps extends LinkProps {
     className?: string;
 }
 
-function AppLink(props: PropsWithChildren<AppLinkProps>) {
+const AppLink = memo(function AppLink(props: PropsWithChildren<AppLinkProps>) {
     const { children, className, ...linkProps } = props;
     const { theme } = useTheme();
     return (
@@ -28,6 +28,6 @@ function AppLink(props: PropsWithChildren<AppLinkProps>) {
             {children}
         </Link>
     );
-}
+});
 
 export { AppLink };

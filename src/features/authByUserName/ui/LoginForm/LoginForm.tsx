@@ -22,11 +22,12 @@ import classes from "./LoginForm.module.scss";
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = { loginForm: loginFormReducer };
 
-const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
+const LoginForm = memo(function LoginForm({ className, onSuccess }: LoginFormProps) {
     const { t } = useTranslation("authorization");
     const dispatch = useAppDispatch();
     const username = useSelector(getLoginFormUsername);
@@ -50,7 +51,10 @@ const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
 
     const handleSubmitLoginForm = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        await dispatch(loginByUsername({ username, password }));
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === "fulfilled") {
+            onSuccess();
+        }
     };
 
     // TODO: fix lint error later

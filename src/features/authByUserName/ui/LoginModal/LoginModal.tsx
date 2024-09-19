@@ -13,7 +13,7 @@ function LoginModal({ className, isOpen, onClose }: Props) {
     return (
         <Modal className={className} isOpen={isOpen} onClose={onClose} lazy>
             <Suspense fallback={<Spinner />}>
-                <LoginFormLazy />
+                <LoginFormLazy onSuccess={onClose} />
             </Suspense>
         </Modal>
     );

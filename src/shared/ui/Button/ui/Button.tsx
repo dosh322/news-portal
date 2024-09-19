@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
 import classes from "./Button.module.scss";
 
 export enum ButtonTheme {
@@ -23,7 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
 }
 
-function Button({
+const Button = memo(function Button({
     className,
     onClick,
     children,
@@ -50,6 +50,6 @@ function Button({
             {children}
         </button>
     );
-}
+});
 
 export { Button };
