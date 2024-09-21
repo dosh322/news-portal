@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import path from "path";
-import { DefinePlugin, RuleSetRule } from "webpack";
+import { DefinePlugin } from "webpack";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 
 const config: StorybookConfig = {
@@ -31,8 +31,14 @@ const config: StorybookConfig = {
 
         config.resolve?.modules?.push(path.resolve(srcPath));
         config.resolve?.extensions?.push(".ts", ".tsx");
-        config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
-            if (/svg/.test(rule.test as string)) {
+        config.module!.rules = config.module!.rules!.map((rule) => {
+            // Ensure the rule is a RuleSetRule before modifying it
+            if (
+                typeof rule === "object" &&
+                rule !== null &&
+                "test" in rule &&
+                /svg/.test(rule.test as string)
+            ) {
                 return { ...rule, exclude: /\.svg$/i };
             }
 
@@ -46,7 +52,12 @@ const config: StorybookConfig = {
 
         config.module?.rules?.push(buildCssLoader(true));
 
-        config.plugins?.push(new DefinePlugin({ __IS_DEV__: true }));
+        config.plugins?.push(
+            new DefinePlugin({
+                __IS_DEV__: JSON.stringify(true),
+                __API__: JSON.stringify(""),
+            }),
+        );
 
         return config;
     },

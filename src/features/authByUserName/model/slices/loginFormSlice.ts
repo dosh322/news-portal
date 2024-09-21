@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { rootReducer } from "app/providers/StoreProvider";
 import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 import { LoginFormSchema } from "../types/loginFormSchema";
 
@@ -18,6 +19,14 @@ export const loginFormSlice = createSlice({
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
+        reset: () => initialState,
+    },
+    selectors: {
+        selectLoginFormState: (state) => state,
+        selectLoginFormUsername: (state) => state.username,
+        selectLoginFormPassword: (state) => state.password,
+        selectLoginFormError: (state) => state.error,
+        selectLoginFormIsLoading: (state) => state.isLoading,
     },
     extraReducers: (builder) => {
         builder
@@ -25,7 +34,7 @@ export const loginFormSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(loginByUsername.fulfilled, (state, action) => {
+            .addCase(loginByUsername.fulfilled, (state) => {
                 state.isLoading = false;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
@@ -35,4 +44,10 @@ export const loginFormSlice = createSlice({
     },
 });
 
-export const { actions: loginFormActions, reducer: loginFormReducer } = loginFormSlice;
+const injectedLoginFormSlice = loginFormSlice.injectInto(rootReducer);
+
+export const {
+    actions: loginFormActions,
+    reducer: loginFormReducer,
+    selectors: loginFormSelectors,
+} = injectedLoginFormSlice;

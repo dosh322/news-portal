@@ -1,27 +1,29 @@
-import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
-import { userReducer } from "entities/User";
+import { configureStore } from "@reduxjs/toolkit";
+import { NavigateOptions, To } from "react-router-dom";
+import { $api } from "shared/api/api";
+import { rootReducer } from "./reducer";
 import { StateSchema } from "./StateSchema";
-import { createReducerManager } from "./reducerManager";
 
-export function createReduxStore(
-    initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>,
-) {
-    const rootReducers: ReducersMapObject<StateSchema> = {
-        ...asyncReducers,
-        user: userReducer,
-    };
+interface CreateReduxStoreOptions {
+    initialState?: StateSchema;
+    navigate: (to: To, options?: NavigateOptions) => void;
+}
 
-    const reducerManager = createReducerManager(rootReducers);
-
-    const store = configureStore<StateSchema>({
-        reducer: reducerManager.reduce,
+export function createReduxStore({ initialState, navigate }: CreateReduxStoreOptions) {
+    const store = configureStore({
+        reducer: rootReducer,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                        navigate,
+                    },
+                },
+            }),
     });
-
-    // @ts-expect-error will fix later
-    store.reducerManager = reducerManager;
 
     return store;
 }

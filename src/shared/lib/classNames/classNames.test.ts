@@ -24,7 +24,7 @@ describe("classNames", () => {
         expect(
             classNames(
                 "someClass",
-                { hovered: true, clicked: false, scrollable: undefined },
+                { hovered: true, clicked: false, scrollable: false },
                 ["class1", "class2"],
             ),
         ).toBe("someClass class1 class2 hovered");

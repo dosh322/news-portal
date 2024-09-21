@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { memo } from "react";
 import DarkThemeIcon from "shared/assets/icons/dark-theme-icon.svg";
 import LightThemeIcon from "shared/assets/icons/light-theme-icon.svg";
-import { Button } from "shared/ui/Button";
+import { Button, ButtonTheme } from "shared/ui/Button";
 import classes from "./ThemeSwitcher.module.scss";
 
 interface ThemeSwitcherProps {
@@ -21,6 +21,7 @@ const ThemeSwitcher = memo(function ThemeSwitcher({ className }: ThemeSwitcherPr
                 className,
             )}
             onClick={toggleTheme}
+            theme={ButtonTheme.CLEAR}
         >
             {theme === Theme.LIGHT ? (
                 <LightThemeIcon width={32} height={32} />

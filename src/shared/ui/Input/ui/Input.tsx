@@ -32,7 +32,7 @@ export const Input = memo(function Input({
 }: InputProps) {
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
-    const inputRef = useRef<HTMLInputElement>();
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
         setIsFocused(true);
@@ -51,7 +51,9 @@ export const Input = memo(function Input({
     };
 
     const handleSelect = (e: SyntheticEvent<HTMLInputElement, Event>) => {
-        setCaretPosition(e.currentTarget.selectionStart * FONT_WIDTH);
+        if (e.currentTarget.selectionStart) {
+            setCaretPosition(e.currentTarget.selectionStart * FONT_WIDTH);
+        }
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

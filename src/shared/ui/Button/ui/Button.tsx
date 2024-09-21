@@ -27,7 +27,7 @@ const Button = memo(function Button({
     className,
     onClick,
     children,
-    theme = ButtonTheme.CLEAR,
+    theme = ButtonTheme.OUTLINE,
     square = false,
     size = ButtonSize.M,
     disabled,

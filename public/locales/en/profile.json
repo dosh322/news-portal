@@ -1,3 +1,7 @@
 {
-    "profilePage": "Profile"
+    "profile": "Profile",
+    "NO_PROFILE": "Profile not found",
+    "edit": "edit",
+    "yourFName": "Your first name",
+    "yourLName": "Your last name"
 }

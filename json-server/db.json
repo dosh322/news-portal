@@ -46,13 +46,14 @@
     }
   ],
   "profile": {
-    "firstName": "Andrei",
-    "lastName": "Prokofev",
-    "age": 25,
-    "currency": "RUB",
+    "id": 1,
+    "firstName": "Cristiano",
+    "lastName": "Ronaldo",
+    "age": 39,
+    "currency": "EUR",
     "country": "Russia",
-    "city": "Saint-Petersburg",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg" 
+    "city": "Санкт-Петербург",
+    "username": "Администратор",
+    "avatar": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.19.png"
   }
 }

@@ -5,7 +5,7 @@ import { LoginModal } from "features/authByUserName";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import useAppDispatch from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button";
 import classes from "./Navbar.module.scss";
 

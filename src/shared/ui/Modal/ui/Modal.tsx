@@ -23,7 +23,7 @@ const ANIMATION_DELAY = 300;
 function Modal({ className, children, isOpen, onClose, lazy }: PropsWithChildren<Props>) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef<NodeJS.Timeout>();
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
     const { theme } = useTheme();
 
     const handleClose = useCallback(() => {
@@ -65,7 +65,9 @@ function Modal({ className, children, isOpen, onClose, lazy }: PropsWithChildren
         }
 
         return () => {
-            clearTimeout(timerRef.current);
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
             document.removeEventListener("keydown", handleKeyDown);
         };
     }, [isOpen, handleKeyDown]);
