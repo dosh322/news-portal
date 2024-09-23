@@ -16,5 +16,12 @@ export default (env: BuildEnv) => {
 
     const isDev = mode === "development";
 
-    return buildWebpackConfig({ mode, paths, isDev, port: PORT, apiUrl });
+    return buildWebpackConfig({
+        mode,
+        paths,
+        isDev,
+        port: PORT,
+        apiUrl,
+        project: "frontend",
+    });
 };

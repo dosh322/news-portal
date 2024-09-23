@@ -7,20 +7,6 @@ import { useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routesConfig } from "shared/config/routesConfig";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: (
-            <ErrorBoundary>
-                <StoreProvider>
-                    <App />
-                </StoreProvider>
-            </ErrorBoundary>
-        ),
-        children: routesConfig,
-    },
-]);
-
 function AppRouter() {
     const isAuth = useSelector(getUser);
 

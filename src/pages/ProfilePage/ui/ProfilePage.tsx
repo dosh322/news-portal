@@ -1,13 +1,15 @@
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
-import { fetchProfile, ProfileCard } from "entities/Profile";
+import { fetchProfile, ProfileCard, ValidateProfileError } from "entities/Profile";
 import {
     profileActions,
     profileSelectors,
 } from "entities/Profile/model/slice/profileSlice";
 import { memo, useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { Text, TextTheme } from "shared/ui/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 interface Props {
@@ -15,11 +17,25 @@ interface Props {
 }
 
 const ProfilePage = memo(function ProfilePage({ className }: Props) {
+    const { t } = useTranslation("profile");
     const dispatch = useAppDispatch();
     const formData = useSelector(profileSelectors.selectProfileForm);
     const isLoading = useSelector(profileSelectors.selectProfileIsLoading);
     const error = useSelector(profileSelectors.selectProfileError);
     const readOnly = useSelector(profileSelectors.selectProfileReadonly);
+    const validateErrors = useSelector(profileSelectors.selectValidateErrors);
+
+    const validateErrorTranslates = {
+        [ValidateProfileError.INCORRECT_AGE]: t(ValidateProfileError.INCORRECT_AGE),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t(
+            ValidateProfileError.INCORRECT_COUNTRY,
+        ),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t(
+            ValidateProfileError.INCORRECT_USER_DATA,
+        ),
+        [ValidateProfileError.NO_DATA]: t(ValidateProfileError.NO_DATA),
+        [ValidateProfileError.SERVER_ERROR]: t(ValidateProfileError.SERVER_ERROR),
+    };
 
     const handleChangeFirstName = useCallback(
         (value?: string) => {
@@ -78,12 +94,22 @@ const ProfilePage = memo(function ProfilePage({ className }: Props) {
     );
 
     useEffect(() => {
-        dispatch(fetchProfile());
+        if (__PROJECT__ !== "storybook") {
+            dispatch(fetchProfile());
+        }
     }, [dispatch]);
 
     return (
         <div>
             <ProfilePageHeader />
+            {(validateErrors || [])?.length > 0 &&
+                validateErrors?.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslates[err]}
+                    />
+                ))}
             <ProfileCard
                 data={formData}
                 isLoading={isLoading}

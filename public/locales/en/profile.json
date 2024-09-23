@@ -13,5 +13,10 @@
     "yourCurrency": "Your currency",
     "yourCountry": "Your country",
     "loadingErrorTitle": "There was and error during profile loading",
+    "SERVER_ERROR": "Server Error",
+    "INCORRECT_COUNTRY": "Incorrect country or it is empty",
+    "INCORRECT_AGE": "Age should be integer",
+    "INCORRECT_USER_DATA": "No data for first name and last name",
+    "NO_DATA": "Form is empty",
     "loadingErrorBody": "Try to update this page"
 }
