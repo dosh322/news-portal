@@ -3,18 +3,26 @@
     border: 2px solid var(--inverted-bg-color);
 }
 
-.profileHeader {
+.loaderContainer {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
 }
 
-.editBtn {
-    margin-left: auto;
+.avatarWrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .profileInfo {
-    margin-top: 30px;
+    // margin-top: 30px;
 }
 
 .input {
     margin-top: 10px;
+}
+
+.editing {
+    border: 2px solid var(--inverted-primary-color);
 }

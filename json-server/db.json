@@ -49,9 +49,9 @@
     "id": 1,
     "firstName": "Cristiano",
     "lastName": "Ronaldo",
-    "age": 39,
-    "currency": "EUR",
-    "country": "Russia",
+    "age": 39123,
+    "currency": "RUB",
+    "country": "Armenia",
     "city": "Санкт-Петербург",
     "username": "Администратор",
     "avatar": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.19.png"

@@ -14,10 +14,7 @@ export const loginByUsername = createAsyncThunk<
     ThunkConfig<string>
 >(
     "loginForm/loginByUsername",
-    async (
-        { username, password },
-        { rejectWithValue, dispatch, extra: { api, navigate } },
-    ) => {
+    async ({ username, password }, { rejectWithValue, dispatch, extra: { api } }) => {
         try {
             const response = await api.post<User>("/login", {
                 username,
@@ -29,7 +26,7 @@ export const loginByUsername = createAsyncThunk<
             }
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
-            navigate("/about");
+
             return response.data;
         } catch (e) {
             // eslint-disable-next-line no-console

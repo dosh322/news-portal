@@ -2,6 +2,16 @@
     "profile": "Профиль",
     "NO_PROFILE": "Профиль не найден",
     "edit": "Редактировать",
+    "cancel": "Отменить",
+    "save": "Сохранить",
     "yourFName": "Ваше имя",
-    "yourLName": "Ваша фамилия"
+    "yourLName": "Ваша фамилия",
+    "yourAge": "Ваш возраст",
+    "yourCity": "Ваш город",
+    "yourUsername": "Ваше имя пользователя",
+    "yourAvatar": "Ваша ссылка на аватар",
+    "yourCurrency": "Выберите валюту",
+    "yourCountry": "Ваша страна",
+    "loadingErrorTitle": "Произошла ошибка при загрузке профиля",
+    "loadingErrorBody": "Попробуйте обновить страницу"
 }

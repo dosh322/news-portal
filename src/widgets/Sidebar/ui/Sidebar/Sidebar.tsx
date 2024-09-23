@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { memo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button";
 import { LangSwitcher } from "widgets/LangSwithcer";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";

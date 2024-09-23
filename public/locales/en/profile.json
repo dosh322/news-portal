@@ -2,6 +2,16 @@
     "profile": "Profile",
     "NO_PROFILE": "Profile not found",
     "edit": "edit",
+    "cancel": "cancel",
+    "save": "save",
     "yourFName": "Your first name",
-    "yourLName": "Your last name"
+    "yourLName": "Your last name",
+    "yourAge": "Your age",
+    "yourCity": "Your city",
+    "yourUsername": "Your user name",
+    "yourAvatar": "Your avatar",
+    "yourCurrency": "Your currency",
+    "yourCountry": "Your country",
+    "loadingErrorTitle": "There was and error during profile loading",
+    "loadingErrorBody": "Try to update this page"
 }

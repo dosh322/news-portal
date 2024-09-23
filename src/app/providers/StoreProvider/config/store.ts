@@ -6,10 +6,9 @@ import { StateSchema } from "./StateSchema";
 
 interface CreateReduxStoreOptions {
     initialState?: StateSchema;
-    navigate: (to: To, options?: NavigateOptions) => void;
 }
 
-export function createReduxStore({ initialState, navigate }: CreateReduxStoreOptions) {
+export function createReduxStore({ initialState }: CreateReduxStoreOptions) {
     const store = configureStore({
         reducer: rootReducer,
         devTools: __IS_DEV__,
@@ -19,7 +18,6 @@ export function createReduxStore({ initialState, navigate }: CreateReduxStoreOpt
                 thunk: {
                     extraArgument: {
                         api: $api,
-                        navigate,
                     },
                 },
             }),

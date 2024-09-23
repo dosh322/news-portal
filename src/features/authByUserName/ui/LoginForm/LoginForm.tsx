@@ -3,6 +3,7 @@ import { loginByUsername } from "features/authByUserName/model/services/loginByU
 import { FormEvent, memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button";
 import { Input } from "shared/ui/Input";
@@ -17,6 +18,7 @@ export interface LoginFormProps {
 
 const LoginForm = memo(function LoginForm({ className, onSuccess }: LoginFormProps) {
     const { t } = useTranslation("authorization");
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const username = useSelector(loginFormSelectors.selectLoginFormUsername);
     const password = useSelector(loginFormSelectors.selectLoginFormPassword);
@@ -42,6 +44,7 @@ const LoginForm = memo(function LoginForm({ className, onSuccess }: LoginFormPro
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === "fulfilled") {
             onSuccess();
+            navigate("/about");
         }
     };
 

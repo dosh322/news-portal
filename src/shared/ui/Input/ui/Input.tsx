@@ -11,10 +11,12 @@ import {
 } from "react";
 import classes from "./Input.module.scss";
 
-export interface InputProps extends Omit<ComponentProps<"input">, "onChange" | "value"> {
+export interface InputProps
+    extends Omit<ComponentProps<"input">, "onChange" | "value" | "readOnly"> {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
+    readOnly?: boolean;
 }
 
 const FONT_WIDTH = 9;
@@ -28,11 +30,14 @@ export const Input = memo(function Input({
     onFocus,
     onBlur,
     autoFocus,
+    readOnly,
     ...inputProps
 }: InputProps) {
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const isCaretVisible = isFocused && !readOnly;
 
     const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
         setIsFocused(true);
@@ -81,14 +86,15 @@ export const Input = memo(function Input({
                     ref={inputRef}
                     value={value}
                     onChange={handleChange}
-                    className={classes.input}
+                    className={clsx(classes.input, readOnly && classes.readOnly)}
                     type={type}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     onSelect={handleSelect}
+                    readOnly={readOnly}
                     {...inputProps}
                 />
-                {isFocused && (
+                {isCaretVisible && (
                     <span className={classes.caret} style={{ left: caretPosition }} />
                 )}
             </div>
