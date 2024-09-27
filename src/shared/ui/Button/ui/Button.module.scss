@@ -3,6 +3,12 @@
     cursor: pointer;
     color: var(--primary-color);
     padding: 10px 15px;
+
+    &:hover {
+        opacity: 0.7;
+        fill-opacity: 0.7;
+        stroke-opacity: var(--primary-color);
+    }
 }
 
 .clear {

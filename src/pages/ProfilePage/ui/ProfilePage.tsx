@@ -5,10 +5,11 @@ import {
     profileActions,
     profileSelectors,
 } from "entities/Profile/model/slice/profileSlice";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Text, TextTheme } from "shared/ui/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
@@ -93,11 +94,9 @@ const ProfilePage = memo(function ProfilePage({ className }: Props) {
         [dispatch],
     );
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") {
-            dispatch(fetchProfile());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfile());
+    });
 
     return (
         <div>
