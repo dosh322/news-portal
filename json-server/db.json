@@ -41,10 +41,10 @@
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "jude",
       "password": "123",
       "role": "USER",
-      "avatar": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.19.png"
+      "avatar": "https://api.kmanalysis.com/news-images/GettyImages-1656777561-1140x760.jpg"
     }
   ],
   "comments": [
@@ -65,6 +65,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "id": "4",
+      "text": "some comment 4",
+      "articleId": "1",
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "new comment",
+      "id": "C2sZTtz"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "from jude",
+      "id": "74XNPOi"
     }
   ],
   "articles": [
@@ -75,7 +93,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -138,15 +158,28 @@
       ]
     }
   ],
-  "profile": {
-    "id": 1,
-    "firstName": "Cristiano",
-    "lastName": "Ronaldo",
-    "age": 39123,
-    "currency": "RUB",
-    "country": "Armenia",
-    "city": "Санкт-Петербург",
-    "username": "Администратор",
-    "avatar": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.19.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Cristiano",
+      "lastName": "Ronaldo",
+      "age": 39123,
+      "currency": "RUB",
+      "country": "Armenia",
+      "city": "Санкт-Петербург",
+      "username": "admin",
+      "avatar": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.19.png"
+    },
+    {
+      "id": "2",
+      "firstName": "Jude",
+      "lastName": "Bellingham",
+      "age": 25,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Санкт-Петербург",
+      "username": "jude",
+      "avatar": "https://api.kmanalysis.com/news-images/GettyImages-1656777561-1140x760.jpg"
+    }
+  ]
 }

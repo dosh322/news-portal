@@ -8,6 +8,7 @@ import {
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Text, TextTheme } from "shared/ui/Text";
@@ -19,6 +20,7 @@ interface Props {
 
 const ProfilePage = memo(function ProfilePage({ className }: Props) {
     const { t } = useTranslation("profile");
+    const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
     const formData = useSelector(profileSelectors.selectProfileForm);
     const isLoading = useSelector(profileSelectors.selectProfileIsLoading);
@@ -95,7 +97,9 @@ const ProfilePage = memo(function ProfilePage({ className }: Props) {
     );
 
     useInitialEffect(() => {
-        dispatch(fetchProfile());
+        if (id) {
+            dispatch(fetchProfile(id));
+        }
     });
 
     return (

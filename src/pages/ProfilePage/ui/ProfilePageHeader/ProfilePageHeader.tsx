@@ -3,6 +3,7 @@ import {
     profileActions,
     profileSelectors,
 } from "entities/Profile/model/slice/profileSlice";
+import { getUser } from "entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -17,6 +18,9 @@ interface Props {
 
 function ProfilePageHeader({ className }: Props) {
     const { t } = useTranslation("profile");
+    const currentUser = useSelector(getUser);
+    const currentProfile = useSelector(profileSelectors.selectProfileData);
+    const canEdit = currentUser?.id === currentProfile?.id;
     const dispatch = useAppDispatch();
 
     const readOnly = useSelector(profileSelectors.selectProfileReadonly);
@@ -36,27 +40,32 @@ function ProfilePageHeader({ className }: Props) {
     return (
         <header className={classes.profileHeader}>
             <Text title={t("profile")} />
-            {readOnly ? (
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    className={classes.editBtn}
-                    onClick={handleEditBtnClick}
-                >
-                    {t("edit")}
-                </Button>
-            ) : (
-                <>
-                    <Button
-                        theme={ButtonTheme.OUTLINE_RED}
-                        className={classes.editBtn}
-                        onClick={handleCancelEdit}
-                    >
-                        {t("cancel")}
-                    </Button>
-                    <Button theme={ButtonTheme.OUTLINE} onClick={handleSaveForm}>
-                        {t("save")}
-                    </Button>
-                </>
+            {canEdit && (
+                <div className={classes.btnsWrapper}>
+                    {" "}
+                    {readOnly ? (
+                        <Button
+                            theme={ButtonTheme.OUTLINE}
+                            className={classes.editBtn}
+                            onClick={handleEditBtnClick}
+                        >
+                            {t("edit")}
+                        </Button>
+                    ) : (
+                        <>
+                            <Button
+                                theme={ButtonTheme.OUTLINE_RED}
+                                className={classes.editBtn}
+                                onClick={handleCancelEdit}
+                            >
+                                {t("cancel")}
+                            </Button>
+                            <Button theme={ButtonTheme.OUTLINE} onClick={handleSaveForm}>
+                                {t("save")}
+                            </Button>
+                        </>
+                    )}
+                </div>
             )}
         </header>
     );
