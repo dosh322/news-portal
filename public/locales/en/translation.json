@@ -10,5 +10,11 @@
   "toggle": "toggle",
   "login": "Log in",
   "defaultPlaceholder": "Type text...",
-  "logout": "Log out"
+  "logout": "Log out",
+  "sort": "Sort by:",
+  "asc": "ASC",
+  "desc": "DESC",
+  "byName": "name",
+  "byCreateAt": "created at",
+  "byViews": "views"
 }

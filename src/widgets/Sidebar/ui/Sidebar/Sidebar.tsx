@@ -21,7 +21,7 @@ const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
     };
 
     return (
-        <div
+        <menu
             className={clsx(classes.Sidebar, isCollapsed && classes.collapsed, className)}
             data-testid="sidebar"
         >
@@ -45,7 +45,7 @@ const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
             >
                 {isCollapsed ? ">" : "<"}
             </Button>
-        </div>
+        </menu>
     );
 });
 

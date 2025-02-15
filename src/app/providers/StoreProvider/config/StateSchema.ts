@@ -6,6 +6,8 @@ import { AddCommentFormSchema } from "features/addCommentForm";
 import type { LoginFormSchema } from "features/authByUserName";
 import { ArticleCommentsSchema } from "pages/ArticlePage";
 import { RootState } from "./store";
+import { ArticlesListSchema } from "pages/ArticlesListPage";
+import { ScrollRestorationSchema } from "features/scrollRestoration";
 
 export interface StaticReducers {
     user: UserSchema;
@@ -17,6 +19,8 @@ export interface LazyLoadedSlices {
     article?: ArticleSchema;
     articleComments?: ArticleCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
+    articles?: ArticlesListSchema;
+    scrollRestoration?: ScrollRestorationSchema;
 }
 
 export type StateSchema = StaticReducers & LazyLoadedSlices;

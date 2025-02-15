@@ -1,3 +1,11 @@
+import { User } from "entities/User";
+
+export enum ArticleSortFields {
+    VIEWS = "views",
+    TITLE = "title",
+    CREATED = "createdAt",
+}
+
 export interface ArticleSchema {
     isLoading: boolean;
     error?: string;
@@ -7,6 +15,7 @@ export interface ArticleSchema {
 export interface Article {
     id: string;
     title: string;
+    user: User;
     subtitle: string;
     img: string;
     views: number;
@@ -46,7 +55,13 @@ export interface ArticleBlockBase {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export enum ArticleType {
+    ALL = "ALL",
     IT = "IT",
     SCIENCE = "SCIENCE",
     ECONOMICS = "ECONOMICS",
+}
+
+export enum ArticleView {
+    BIG = "BIG",
+    SMALL = "SMALL",
 }

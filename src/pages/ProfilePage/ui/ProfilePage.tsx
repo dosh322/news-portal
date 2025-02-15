@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Text, TextTheme } from "shared/ui/Text";
+import Page from "widgets/Page/Page";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 interface Props {
@@ -103,7 +104,7 @@ const ProfilePage = memo(function ProfilePage({ className }: Props) {
     });
 
     return (
-        <div>
+        <Page>
             <ProfilePageHeader />
             {(validateErrors || [])?.length > 0 &&
                 validateErrors?.map((err) => (
@@ -127,7 +128,7 @@ const ProfilePage = memo(function ProfilePage({ className }: Props) {
                 onChangeCountry={handleChangeCountry}
                 readOnly={readOnly}
             />
-        </div>
+        </Page>
     );
 });
 
