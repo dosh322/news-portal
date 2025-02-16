@@ -1,4 +1,4 @@
-import { Article } from "entities/Article";
+import { Article, ArticleList } from "entities/Article";
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/addCommentForm";
 import { memo, useCallback } from "react";
@@ -9,11 +9,13 @@ import { routePaths } from "shared/config/routesConfig";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Button, ButtonTheme } from "shared/ui/Button";
-import { Text } from "shared/ui/Text";
+import { Text, TextSize } from "shared/ui/Text";
 import Page from "widgets/Page/Page";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
+import { fetchArticleRecommendations } from "../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { articleCommentsSelectors } from "../model/slices/articleCommentsSlice";
+import { articleRecommendationsSelectors } from "../model/slices/articleRecommendationsSlice";
 import classes from "./ArticlePage.module.scss";
 
 function ArticlePage() {
@@ -22,6 +24,10 @@ function ArticlePage() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const comments = useSelector(articleCommentsSelectors.selectAll);
+    const recommendations = useSelector(articleRecommendationsSelectors.selectAll);
+    const areRecommendationsLoading = useSelector(
+        articleRecommendationsSelectors.selectArticleRecommendationsIsLoading,
+    );
     const commentsIsLoading = useSelector(
         articleCommentsSelectors.selectArticleCommentsIsLoading,
     );
@@ -32,6 +38,7 @@ function ArticlePage() {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticleRecommendations());
     });
 
     const handleSendComment = useCallback(
@@ -47,7 +54,22 @@ function ArticlePage() {
                 {t("back to list")}
             </Button>
             <Article />
-            <Text className={classes.commentTitle} title={t("comments")} />
+            <Text
+                size={TextSize.L}
+                className={classes.commentTitle}
+                title={t("recommendations")}
+            />
+            <ArticleList
+                articles={recommendations}
+                isLoading={areRecommendationsLoading}
+                className={classes.recommendations}
+                target="_blank"
+            />
+            <Text
+                size={TextSize.L}
+                className={classes.commentTitle}
+                title={t("comments")}
+            />
             <AddCommentForm onSendComment={handleSendComment} />
             <CommentList comments={comments} isLoading={commentsIsLoading} />
         </Page>

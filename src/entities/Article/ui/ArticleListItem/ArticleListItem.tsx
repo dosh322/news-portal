@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { memo, useCallback } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg";
 import { routePaths } from "shared/config/routesConfig";
+import { AppLink } from "shared/ui/AppLink";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ButtonTheme } from "shared/ui/Button";
 import { Card } from "shared/ui/Card";
@@ -22,19 +22,17 @@ interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo(function ArticleListItem({
     className,
     article,
     view,
+    target = "_self",
 }: ArticleListItemProps) {
     const { t } = useTranslation("articlesList");
-    const navigate = useNavigate();
-
-    const handleOpenArticle = useCallback(() => {
-        navigate(`${routePaths.article}${article.id}`);
-    }, [article.id, navigate]);
+    const articleLink = `${routePaths.article}${article.id}`;
 
     const types = <Text text={article.type.join(", ")} className={classes.types} />;
     const views = (
@@ -67,9 +65,9 @@ export const ArticleListItem = memo(function ArticleListItem({
                         />
                     )}
                     <div className={classes.footer}>
-                        <Button onClick={handleOpenArticle} theme={ButtonTheme.OUTLINE}>
-                            {t("read more")}
-                        </Button>
+                        <AppLink to={articleLink} target={target}>
+                            <Button theme={ButtonTheme.OUTLINE}>{t("read more")}</Button>
+                        </AppLink>
                         {views}
                     </div>
                 </Card>
@@ -78,8 +76,12 @@ export const ArticleListItem = memo(function ArticleListItem({
     }
 
     return (
-        <div className={clsx(classes.ArticleListItem, className, classes[view])}>
-            <Card className={classes.card} onClick={handleOpenArticle}>
+        <AppLink
+            to={articleLink}
+            className={clsx(classes.ArticleListItem, className, classes[view])}
+            target={target}
+        >
+            <Card className={classes.card}>
                 <div className={classes.imageWrapper}>
                     <img alt={article.title} src={article.img} className={classes.img} />
                     <Text text={article.createdAt} className={classes.date} />
@@ -90,6 +92,6 @@ export const ArticleListItem = memo(function ArticleListItem({
                 </div>
                 <Text text={article.title} className={classes.title} />
             </Card>
-        </div>
+        </AppLink>
     );
 });

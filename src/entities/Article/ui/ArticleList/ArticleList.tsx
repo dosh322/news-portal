@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { ArticleListItemSkeleton } from "entities/Article/ui/ArticleListItem/ArticleListItemSkeleton";
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Text, TextSize } from "shared/ui/Text";
 import { Article, ArticleView } from "../../model/types";
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -26,6 +27,7 @@ export const ArticleList = memo(function ArticleList({
     articles,
     view = ArticleView.SMALL,
     isLoading,
+    target = "_self",
 }: ArticleListProps) {
     const { t } = useTranslation("articlesList");
     const renderArticle = (article: Article) => (
@@ -34,6 +36,7 @@ export const ArticleList = memo(function ArticleList({
             view={view}
             className={classes.card}
             key={article.id}
+            target={target}
         />
     );
 

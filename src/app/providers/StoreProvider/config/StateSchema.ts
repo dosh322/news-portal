@@ -4,20 +4,20 @@ import { ProfileSchema } from "entities/Profile";
 import type { UserSchema } from "entities/User";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import type { LoginFormSchema } from "features/authByUserName";
-import { ArticleCommentsSchema } from "pages/ArticlePage";
-import { RootState } from "./store";
-import { ArticlesListSchema } from "pages/ArticlesListPage";
 import { ScrollRestorationSchema } from "features/scrollRestoration";
+import { ArticlePageSchema } from "pages/ArticlePage";
+import { ArticlesListSchema } from "pages/ArticlesListPage";
+import { RootState } from "./store";
 
 export interface StaticReducers {
     user: UserSchema;
+    articlePage: ArticlePageSchema;
 }
 
 export interface LazyLoadedSlices {
     loginForm?: LoginFormSchema;
     profile?: ProfileSchema;
     article?: ArticleSchema;
-    articleComments?: ArticleCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
     articles?: ArticlesListSchema;
     scrollRestoration?: ScrollRestorationSchema;
