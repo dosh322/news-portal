@@ -1,12 +1,14 @@
 import clsx from "clsx";
-
 import { getUser, userActions } from "entities/User";
 import { LoginModal } from "features/authByUserName";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { routePaths } from "shared/config/routesConfig";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink";
 import { Button, ButtonTheme } from "shared/ui/Button";
+import { Text, TextTheme } from "shared/ui/Text";
 import classes from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -34,9 +36,17 @@ const Navbar = memo(function Navbar({ className }: NavbarProps) {
     if (user) {
         return (
             <nav className={clsx(classes.Navbar, className)}>
+                <Text
+                    className={classes.appName}
+                    theme={TextTheme.INVERTED}
+                    title={t("ITFeed")}
+                />
+                <AppLink to={routePaths.article_create} theme={AppLinkTheme.SECONDARY}>
+                    {t("create article")}
+                </AppLink>
                 <Button
                     theme={ButtonTheme.CLEAR}
-                    className={clsx(classes.links)}
+                    className={clsx(classes.login)}
                     onClick={handleLogout}
                 >
                     {t("logout")}

@@ -1,4 +1,6 @@
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+// eslint-disable-next-line import/default
+import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HTMLWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -34,6 +36,9 @@ export function buildPlugins({
                 },
                 mode: "write-references",
             },
+        }),
+        new CopyPlugin({
+            patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
     ];
 

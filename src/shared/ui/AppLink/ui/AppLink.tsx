@@ -1,4 +1,3 @@
-import { Theme, useTheme } from "app/providers/ThemeProvider";
 import clsx from "clsx";
 import { memo, PropsWithChildren } from "react";
 import { Link, LinkProps } from "react-router-dom";
@@ -11,20 +10,14 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps {
     className?: string;
+    theme?: AppLinkTheme;
 }
 
 const AppLink = memo(function AppLink(props: PropsWithChildren<AppLinkProps>) {
-    const { children, className, ...linkProps } = props;
-    const { theme } = useTheme();
+    const { children, className, theme = AppLinkTheme.PRIMARY, ...linkProps } = props;
+
     return (
-        <Link
-            {...linkProps}
-            className={clsx(
-                classes.AppLink,
-                theme === Theme.DARK && classes.AppLink_dark,
-                className,
-            )}
-        >
+        <Link {...linkProps} className={clsx(classes.AppLink, classes[theme], className)}>
             {children}
         </Link>
     );

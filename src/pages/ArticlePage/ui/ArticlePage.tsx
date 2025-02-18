@@ -4,11 +4,9 @@ import { AddCommentForm } from "features/addCommentForm";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { routePaths } from "shared/config/routesConfig";
+import { useParams } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { Button, ButtonTheme } from "shared/ui/Button";
 import { Text, TextSize } from "shared/ui/Text";
 import Page from "widgets/Page/Page";
 import { addCommentForArticle } from "../model/services/addCommentForArticle/addCommentForArticle";
@@ -17,12 +15,13 @@ import { fetchCommentsByArticleId } from "../model/services/fetchCommentsByArtic
 import { articleCommentsSelectors } from "../model/slices/articleCommentsSlice";
 import { articleRecommendationsSelectors } from "../model/slices/articleRecommendationsSlice";
 import classes from "./ArticlePage.module.scss";
+import { ArticlePageHeader } from "./ArticlePageHeader/ArticlePageHeader";
 
 function ArticlePage() {
     const { t } = useTranslation("article");
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+
     const comments = useSelector(articleCommentsSelectors.selectAll);
     const recommendations = useSelector(articleRecommendationsSelectors.selectAll);
     const areRecommendationsLoading = useSelector(
@@ -31,10 +30,6 @@ function ArticlePage() {
     const commentsIsLoading = useSelector(
         articleCommentsSelectors.selectArticleCommentsIsLoading,
     );
-
-    const handleBackBtnClick = useCallback(() => {
-        navigate(routePaths.articles);
-    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -50,9 +45,7 @@ function ArticlePage() {
 
     return (
         <Page className={classes.articlePage}>
-            <Button theme={ButtonTheme.OUTLINE} onClick={handleBackBtnClick}>
-                {t("back to list")}
-            </Button>
+            <ArticlePageHeader />
             <Article />
             <Text
                 size={TextSize.L}

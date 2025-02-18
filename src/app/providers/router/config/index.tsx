@@ -1,4 +1,5 @@
 import { AboutPage } from "pages/AboutPage";
+import { ArticleEditPage } from "pages/ArticleEditPage";
 import { ArticlePage } from "pages/ArticlePage";
 import { ArticlesListPage } from "pages/ArticlesListPage";
 import { HomePage } from "pages/HomePage";
@@ -23,6 +24,22 @@ export const routesConfig: AppRoutesProps[] = [
         element: (
             <RequireAuth>
                 <ArticlePage />
+            </RequireAuth>
+        ),
+    },
+    {
+        path: `${routePaths.article_create}`,
+        element: (
+            <RequireAuth>
+                <ArticleEditPage />
+            </RequireAuth>
+        ),
+    },
+    {
+        path: `${routePaths.article_edit}`,
+        element: (
+            <RequireAuth>
+                <ArticleEditPage />
             </RequireAuth>
         ),
     },
