@@ -54,6 +54,7 @@ export default memo(function Page({
 
     return (
         <div
+            id="page"
             ref={wrapperRef}
             className={clsx(classes.page, className)}
             onScroll={handleScroll}
