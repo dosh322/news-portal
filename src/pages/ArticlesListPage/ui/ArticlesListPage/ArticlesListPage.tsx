@@ -32,13 +32,15 @@ function ArticlesListPage({ className }: Props) {
     }, [dispatch]);
 
     return (
-        <Page className={clsx(className)} onScrollEnd={handlePageChange}>
+        <Page className={clsx(className)}>
             <ArticlesListPageFilters />
             <ArticleList
                 className={classes.list}
                 isLoading={isLoading}
                 view={view}
                 articles={articles}
+                virtualized
+                onEndReached={handlePageChange}
             />
         </Page>
     );
