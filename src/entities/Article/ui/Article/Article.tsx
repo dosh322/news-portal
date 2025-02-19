@@ -9,6 +9,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
 import { Avatar } from "shared/ui/Avatar";
 import { Icon } from "shared/ui/Icon";
 import { Skeleton } from "shared/ui/Skeleton";
+import { HStack, VStack } from "shared/ui/Stack";
 import { Text, TextAlign, TextSize, TextTheme } from "shared/ui/Text";
 import { articleSelectors } from "../../.";
 import { fetchArticle } from "../../model/services/fetchArticleById";
@@ -71,18 +72,21 @@ function Article({ className }: Props) {
 
     if (isLoading) {
         content = (
-            <>
-                <Skeleton
-                    className={classes.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
-                />
-                <Skeleton className={classes.title} width={300} height={32} />
-                <Skeleton className={classes.skeleton} width={600} height={24} />
-                <Skeleton className={classes.skeleton} width={"100%"} height={200} />
-                <Skeleton className={classes.skeleton} width={"100%"} height={200} />
-            </>
+            <VStack gap="16" max>
+                <HStack justify="center" max>
+                    <Skeleton
+                        className={classes.avatar}
+                        width={200}
+                        height={200}
+                        border="50%"
+                    />
+                </HStack>
+
+                <Skeleton width={300} height={32} />
+                <Skeleton width={600} height={24} />
+                <Skeleton width={"100%"} height={200} />
+                <Skeleton width={"100%"} height={200} />
+            </VStack>
         );
     } else if (!id || error) {
         content = (
@@ -95,29 +99,35 @@ function Article({ className }: Props) {
     } else {
         content = (
             <>
-                <div className={classes.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar size={200} src={article?.img} className={classes.avatar} />
-                </div>
-                <Text
-                    size={TextSize.L}
-                    title={article?.title}
-                    text={article?.subtitle}
-                    className={classes.title}
-                />
-                <div className={classes.articleInfo}>
-                    <Icon className={classes.icon} Svg={EyeIcon} />
-                    <Text text={article?.views.toString()} />
-                </div>
-                <div className={classes.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={classes.icon} />
-                    <Text text={article?.createdAt} />
-                </div>
+                </HStack>
+                <VStack gap="4" max>
+                    <Text
+                        size={TextSize.L}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        className={classes.title}
+                    />
+                    <HStack gap="8">
+                        <Icon className={classes.icon} Svg={EyeIcon} />
+                        <Text text={article?.views.toString()} />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon Svg={CalendarIcon} />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
             </>
         );
     }
 
-    return <div className={classes.article}>{content}</div>;
+    return (
+        <VStack gap="16" max className={classes.article}>
+            {content}
+        </VStack>
+    );
 }
 
 export { Article };

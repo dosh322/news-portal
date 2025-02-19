@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button";
 import { Input } from "shared/ui/Input";
+import { HStack } from "shared/ui/Stack";
 import {
     addCommentFormActions,
     addCommentFormSelectors,
@@ -38,7 +39,7 @@ const AddCommentForm = memo(function AddCommentForm({
     }, [handleCommentTextChange, onSendComment, text]);
 
     return (
-        <div className={clsx(cls.AddCommentForm, className)}>
+        <HStack justify="between" max className={clsx(cls.AddCommentForm, className)}>
             <Input
                 className={cls.input}
                 placeholder={t("add comment")}
@@ -48,7 +49,7 @@ const AddCommentForm = memo(function AddCommentForm({
             <Button theme={ButtonTheme.OUTLINE} onClick={handleSendComment}>
                 {t("send comment")}
             </Button>
-        </div>
+        </HStack>
     );
 });
 

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { routePaths } from "shared/config/routesConfig";
 import { Button, ButtonTheme } from "shared/ui/Button";
-import classes from "./ArticlePageHeader.module.scss";
+import { HStack } from "shared/ui/Stack";
 
 interface Props {
     className?: string;
@@ -27,20 +27,16 @@ function ArticlePageHeader({ className }: Props) {
     }, [navigate, id]);
 
     return (
-        <div className={clsx(classes.articlePageHeader, className)}>
+        <HStack max justify="between" className={clsx(className)}>
             <Button theme={ButtonTheme.OUTLINE} onClick={handleBackBtnClick}>
                 {t("back to list")}
             </Button>
             {showEditBtn && (
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={handleEditBtnClick}
-                    className={classes.editBtn}
-                >
+                <Button theme={ButtonTheme.OUTLINE} onClick={handleEditBtnClick}>
                     {t("edit article")}
                 </Button>
             )}
-        </div>
+        </HStack>
     );
 }
 

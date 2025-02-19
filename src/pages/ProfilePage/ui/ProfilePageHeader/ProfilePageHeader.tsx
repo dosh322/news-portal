@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { updateProfileData } from "entities/Profile";
 import {
     profileActions,
@@ -9,8 +10,8 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button";
+import { HStack } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
-import classes from "./ProfilePageHeader.module.scss";
 
 interface Props {
     className?: string;
@@ -38,24 +39,19 @@ function ProfilePageHeader({ className }: Props) {
     }, [dispatch]);
 
     return (
-        <header className={classes.profileHeader}>
+        <HStack max justify="between" className={clsx(className)}>
             <Text title={t("profile")} />
             {canEdit && (
-                <div className={classes.btnsWrapper}>
+                <>
                     {" "}
                     {readOnly ? (
-                        <Button
-                            theme={ButtonTheme.OUTLINE}
-                            className={classes.editBtn}
-                            onClick={handleEditBtnClick}
-                        >
+                        <Button theme={ButtonTheme.OUTLINE} onClick={handleEditBtnClick}>
                             {t("edit")}
                         </Button>
                     ) : (
-                        <>
+                        <HStack gap="8">
                             <Button
                                 theme={ButtonTheme.OUTLINE_RED}
-                                className={classes.editBtn}
                                 onClick={handleCancelEdit}
                             >
                                 {t("cancel")}
@@ -63,11 +59,11 @@ function ProfilePageHeader({ className }: Props) {
                             <Button theme={ButtonTheme.OUTLINE} onClick={handleSaveForm}>
                                 {t("save")}
                             </Button>
-                        </>
+                        </HStack>
                     )}
-                </div>
+                </>
             )}
-        </header>
+        </HStack>
     );
 }
 

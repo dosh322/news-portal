@@ -2,9 +2,10 @@ import clsx from "clsx";
 import { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button";
+import { VStack } from "shared/ui/Stack";
 import { LangSwitcher } from "widgets/LangSwithcer";
-import { selectSidebarItems } from "../../model/selectors/selectors";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { selectSidebarItems } from "../../model/selectors/selectors";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import classes from "./Sidebar.module.scss";
 
@@ -21,15 +22,15 @@ const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
     };
 
     return (
-        <menu
+        <aside
             className={clsx(classes.Sidebar, isCollapsed && classes.collapsed, className)}
             data-testid="sidebar"
         >
-            <div className={classes.items}>
+            <VStack gap="8" role="navigation" className={classes.items}>
                 {sidebarItems.map((item) => (
                     <SidebarItem item={item} collapsed={isCollapsed} key={item.path} />
                 ))}
-            </div>
+            </VStack>
             <div className={classes.switchers}>
                 <ThemeSwitcher className={classes.ThemeSwitcher} />
                 <LangSwitcher classname={classes.langSwitcher} short={isCollapsed} />
@@ -45,7 +46,7 @@ const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
             >
                 {isCollapsed ? ">" : "<"}
             </Button>
-        </menu>
+        </aside>
     );
 });
 

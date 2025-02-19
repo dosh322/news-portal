@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
+import { VStack } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
 import { Comment } from "../../model/types/comment";
 import { CommentCard } from "../CommentCard/CommentCard";
-import classes from "./CommentList.module.scss";
 
 interface CommentListProps {
     className?: string;
@@ -21,28 +21,27 @@ export const CommentList = memo(function CommentList({
 
     if (isLoading) {
         return (
-            <div className={clsx(classes.CommentList, className)}>
-                <CommentCard className={classes.comment} isLoading />
-                <CommentCard className={classes.comment} isLoading />
-                <CommentCard className={classes.comment} isLoading />
-            </div>
+            <VStack max gap="8" className={clsx(className)}>
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+            </VStack>
         );
     }
 
     return (
-        <div className={clsx(classes.CommentList, className)}>
+        <VStack max gap="16" className={clsx(className)}>
             {comments?.length ? (
                 comments.map((comment) => (
                     <CommentCard
                         key={comment.id}
                         isLoading={isLoading}
-                        className={classes.comment}
                         comment={comment}
                     />
                 ))
             ) : (
                 <Text text={t("no comments")} />
             )}
-        </div>
+        </VStack>
     );
 });

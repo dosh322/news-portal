@@ -53,7 +53,7 @@ export default memo(function Page({
     }, 500);
 
     return (
-        <div
+        <main
             id="page"
             ref={wrapperRef}
             className={clsx(classes.page, className)}
@@ -61,6 +61,6 @@ export default memo(function Page({
         >
             {children}
             {onScrollEnd && <div className={classes.trigger} ref={triggerRef} />}
-        </div>
+        </main>
     );
 });

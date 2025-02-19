@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
+import { VStack } from "shared/ui/Stack";
 import { Text, TextTheme } from "shared/ui/Text";
 import Page from "widgets/Page/Page";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
@@ -105,29 +106,31 @@ const ProfilePage = memo(function ProfilePage({ className }: Props) {
 
     return (
         <Page>
-            <ProfilePageHeader />
-            {(validateErrors || [])?.length > 0 &&
-                validateErrors?.map((err) => (
-                    <Text
-                        key={err}
-                        theme={TextTheme.ERROR}
-                        text={validateErrorTranslates[err]}
-                    />
-                ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                onChangeFirstName={handleChangeFirstName}
-                onChangeLastName={handleChangeLastName}
-                onChangeAge={handleChangeAge}
-                onChangeCity={handleChangeCity}
-                onChangeAvatar={handleChangeUsername}
-                onChangeUsername={handleChangeAvatar}
-                onChangeCurrency={handleChangeCurrency}
-                onChangeCountry={handleChangeCountry}
-                readOnly={readOnly}
-            />
+            <VStack gap="16" max>
+                <ProfilePageHeader />
+                {(validateErrors || [])?.length > 0 &&
+                    validateErrors?.map((err) => (
+                        <Text
+                            key={err}
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[err]}
+                        />
+                    ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeFirstName={handleChangeFirstName}
+                    onChangeLastName={handleChangeLastName}
+                    onChangeAge={handleChangeAge}
+                    onChangeCity={handleChangeCity}
+                    onChangeAvatar={handleChangeUsername}
+                    onChangeUsername={handleChangeAvatar}
+                    onChangeCurrency={handleChangeCurrency}
+                    onChangeCountry={handleChangeCountry}
+                    readOnly={readOnly}
+                />
+            </VStack>
         </Page>
     );
 });
