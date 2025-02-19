@@ -8,7 +8,7 @@ import {
     useRef,
     useState,
 } from "react";
-import { Portal } from "shared/ui/Portal";
+import { Portal } from "../../Portal";
 import classes from "./Modal.module.scss";
 
 interface Props {

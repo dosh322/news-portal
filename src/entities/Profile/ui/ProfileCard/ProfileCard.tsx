@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { Country } from "entities/Country";
 import { CountrySelect } from "entities/Country/ui/CountrySelect";
 import { Currency, CurrencySelect } from "entities/Currency";
-import { Profile } from "entities/Profile/model/types/profile";
+import { Profile } from "../../model/types/profile";
 import { useTranslation } from "react-i18next";
 import { Avatar } from "shared/ui/Avatar";
 import { Input } from "shared/ui/Input";

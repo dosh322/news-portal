@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button";
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta = {
     title: "shared/Button",

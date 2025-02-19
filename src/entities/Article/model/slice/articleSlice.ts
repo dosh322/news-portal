@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { rootReducer } from "app/providers/StoreProvider";
-import { selectCanEditArticle } from "../selectors/article";
 import { fetchArticle } from "../services/fetchArticleById";
 import { ArticleSchema } from "../types";
 

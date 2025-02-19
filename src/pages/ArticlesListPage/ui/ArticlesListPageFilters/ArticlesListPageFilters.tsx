@@ -6,7 +6,7 @@ import {
     ArticleView,
 } from "entities/Article";
 import { ArticleType } from "entities/Article/model/types";
-import { fetchArticles } from "pages/ArticlesListPage/model/services/fetchArticles";
+import { fetchArticles } from "../../model/services/fetchArticles";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";

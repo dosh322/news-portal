@@ -1,4 +1,4 @@
-import { Currency } from "entities/Currency/model/types/types";
+import { Currency } from "../../model/types/types";
 import { memo, useCallback } from "react";
 import { Select, SelectProps } from "shared/ui/Select";
 

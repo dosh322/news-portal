@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { loginByUsername } from "features/authByUserName/model/services/loginByUsername/loginByUsername";
+import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { FormEvent, memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";

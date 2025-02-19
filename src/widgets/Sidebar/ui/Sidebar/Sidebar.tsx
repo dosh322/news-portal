@@ -3,7 +3,7 @@ import { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button";
 import { LangSwitcher } from "widgets/LangSwithcer";
-import { selectSidebarItems } from "widgets/Sidebar/model/selectors/selectors";
+import { selectSidebarItems } from "../../model/selectors/selectors";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import classes from "./Sidebar.module.scss";

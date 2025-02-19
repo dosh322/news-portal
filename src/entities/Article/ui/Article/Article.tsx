@@ -1,6 +1,4 @@
-import { articleSelectors, fetchArticle } from "entities/Article";
-import { ArticleBlock, ArticleBlockType } from "entities/Article/model/types";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -12,6 +10,9 @@ import { Avatar } from "shared/ui/Avatar";
 import { Icon } from "shared/ui/Icon";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Text, TextAlign, TextSize, TextTheme } from "shared/ui/Text";
+import { articleSelectors } from "../../.";
+import { fetchArticle } from "../../model/services/fetchArticleById";
+import { ArticleBlock, ArticleBlockType } from "../../model/types";
 import { ArticleCodeBlock } from "../ArticleCodeBlock/ArticleCodeBlock";
 import { ArticleImageBlock } from "../ArticleImageBlock/ArticleImageBlock";
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock";
