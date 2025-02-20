@@ -17,7 +17,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
     "chromatic": "npx chromatic",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "author": "",
   "license": "ISC",
