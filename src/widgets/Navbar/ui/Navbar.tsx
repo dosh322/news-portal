@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 import { routePaths } from "shared/config/routesConfig";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink";
+import { Avatar } from "shared/ui/Avatar";
 import { Button, ButtonTheme } from "shared/ui/Button";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import { Text, TextTheme } from "shared/ui/Text";
 import classes from "./Navbar.module.scss";
 
@@ -44,13 +46,18 @@ const Navbar = memo(function Navbar({ className }: NavbarProps) {
                 <AppLink to={routePaths.article_create} theme={AppLinkTheme.SECONDARY}>
                     {t("create article")}
                 </AppLink>
-                <Button
-                    theme={ButtonTheme.CLEAR}
-                    className={clsx(classes.login)}
-                    onClick={handleLogout}
-                >
-                    {t("logout")}
-                </Button>
+                <Dropdown
+                    items={[
+                        {
+                            key: "profile",
+                            value: t("profile page"),
+                            href: routePaths.profile + user.id,
+                        },
+                        { key: "logout", value: t("logout"), onClick: handleLogout },
+                    ]}
+                    trigger={<Avatar size={30} src={user.avatar} />}
+                    className={classes.dropdown}
+                />
             </nav>
         );
     }
