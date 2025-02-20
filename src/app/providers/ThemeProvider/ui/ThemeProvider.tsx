@@ -1,4 +1,4 @@
-import { PropsWithChildren, useMemo, useState } from "react";
+import { PropsWithChildren, useEffect, useMemo, useState } from "react";
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
 
 interface Props {
@@ -10,6 +10,11 @@ const defaultTheme =
 
 function ThemeProvider({ children, initialTheme }: PropsWithChildren<Props>) {
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+
+    useEffect(() => {
+        document.body.className = theme;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const defaultProps = useMemo(
         () => ({

@@ -1,5 +1,6 @@
 import { memo, useCallback } from "react";
-import { Select, SelectProps } from "shared/ui/Select";
+import { useTranslation } from "react-i18next";
+import { ListBox } from "shared/ui/ListBox/ListBox";
 import { Country } from "../model/types/country";
 
 const options = [
@@ -9,18 +10,23 @@ const options = [
     { key: Country.Kazakhstan, value: Country.Kazakhstan },
 ];
 
-interface Props extends Omit<SelectProps, "options" | "onChange"> {
+interface CountrySelectProps {
+    label?: string;
     className?: string;
-    onChange?: (value: Country) => void;
     value?: Country;
+    onChange?: (value: Country) => void;
+    readOnly?: boolean;
 }
 
 export const CountrySelect = memo(function CountrySelect({
     label,
     onChange,
     value,
-    ...selectProps
-}: Props) {
+    className,
+    readOnly,
+}: CountrySelectProps) {
+    const { t } = useTranslation("profile");
+
     const handleChange = useCallback(
         (value: string) => {
             if (onChange) {
@@ -31,12 +37,14 @@ export const CountrySelect = memo(function CountrySelect({
     );
 
     return (
-        <Select
-            label={label}
-            options={options}
-            selectedValue={value}
+        <ListBox
             onChange={handleChange}
-            {...selectProps}
+            label={label}
+            value={value}
+            items={options}
+            defaultValue={t("yourCountry")}
+            className={className}
+            readonly={readOnly}
         />
     );
 });
