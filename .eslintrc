@@ -27,7 +27,7 @@
         "plugin:i18next/recommended",
         "prettier"
     ],
-    "plugins": ["import", "@typescript-eslint", "react", "react-hooks", "react-refresh", "i18next", "prettier", "jest", "testing-library"],
+    "plugins": ["import", "@typescript-eslint", "react", "react-hooks", "react-refresh", "i18next", "prettier", "jest", "testing-library", "imports-checker"],
     "rules": {
         "react-refresh/only-export-components": "warn",
         "linebreak-style": 0,
@@ -88,9 +88,10 @@
         "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "./config/**/*", "**/*/renderComponent/**/*"] }],
         "import/named": "off",
         "import/no-named-as-default-member": "off",
-        "i18next/no-literal-string": ["error", { "markupOnly": true, "ignoreAttribute": ["data-testid", "to", "target"] }],
+        "i18next/no-literal-string": ["error", { "markupOnly": true, "ignoreAttribute": ["data-testid", "to", "target", "justify", "align", "direction", "gap", "role"] }],
         "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/no-misused-promises": "off"
+        "@typescript-eslint/no-misused-promises": "off",
+        "imports-checker/imports-checker": "error"
     },
     "overrides": [
         {
