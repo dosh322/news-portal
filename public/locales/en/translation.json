@@ -18,5 +18,6 @@
   "desc": "DESC",
   "byName": "name",
   "byCreateAt": "created at",
-  "byViews": "views"
+  "byViews": "views",
+  "error": "Error"
 }

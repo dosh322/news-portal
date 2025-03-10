@@ -1,9 +1,4 @@
 import clsx from "clsx";
-import { updateProfileData } from "entities/Profile";
-import {
-    profileActions,
-    profileSelectors,
-} from "entities/Profile/model/slice/profileSlice";
 import { getUser } from "entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
@@ -12,12 +7,14 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Button, ButtonTheme } from "shared/ui/Button";
 import { HStack } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
+import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
+import { profileActions, profileSelectors } from "../../model/slice/profileSlice";
 
 interface Props {
     className?: string;
 }
 
-function ProfilePageHeader({ className }: Props) {
+function EditableProfileCardHeader({ className }: Props) {
     const { t } = useTranslation("profile");
     const currentUser = useSelector(getUser);
     const currentProfile = useSelector(profileSelectors.selectProfileData);
@@ -67,4 +64,4 @@ function ProfilePageHeader({ className }: Props) {
     );
 }
 
-export { ProfilePageHeader };
+export { EditableProfileCardHeader };

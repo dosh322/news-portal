@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { NavigateOptions, To } from "react-router-dom";
 import { $api } from "shared/api/api";
+import { rtkApi } from "shared/api/rtkApi";
 import { rootReducer } from "./reducer";
 import { StateSchema } from "./StateSchema";
 
@@ -20,7 +20,7 @@ export function createReduxStore({ initialState }: CreateReduxStoreOptions) {
                         api: $api,
                     },
                 },
-            }),
+            }).concat(rtkApi.middleware),
     });
 
     return store;

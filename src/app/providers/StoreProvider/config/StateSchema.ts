@@ -1,17 +1,17 @@
 import { AxiosInstance } from "axios";
 import { ArticleSchema } from "entities/Article";
-import { ProfileSchema } from "entities/Profile";
 import type { UserSchema } from "entities/User";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import type { LoginFormSchema } from "features/authByUserName";
 import { ScrollRestorationSchema } from "features/scrollRestoration";
-import { ArticlePageSchema } from "pages/ArticlePage";
 import { ArticlesListSchema } from "pages/ArticlesListPage";
+import { rtkApi } from "shared/api/rtkApi";
 import { RootState } from "./store";
+import { ProfileSchema } from "features/EditableProfileCard";
 
 export interface StaticReducers {
     user: UserSchema;
-    articlePage: ArticlePageSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export interface LazyLoadedSlices {

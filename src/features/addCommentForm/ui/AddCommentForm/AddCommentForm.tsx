@@ -14,7 +14,7 @@ import cls from "./AddCommentForm.module.scss";
 
 export interface AddCommentFormProps {
     className?: string;
-    onSendComment: (text: string) => void;
+    onSendComment?: (text: string) => void;
 }
 
 const AddCommentForm = memo(function AddCommentForm({
@@ -23,7 +23,6 @@ const AddCommentForm = memo(function AddCommentForm({
 }: AddCommentFormProps) {
     const { t } = useTranslation("article");
     const text = useSelector(addCommentFormSelectors.selectAddCommentFormText);
-    const error = useSelector(addCommentFormSelectors.selectAddCommentFormError);
     const dispatch = useAppDispatch();
 
     const handleCommentTextChange = useCallback(
@@ -34,7 +33,9 @@ const AddCommentForm = memo(function AddCommentForm({
     );
 
     const handleSendComment = useCallback(() => {
-        onSendComment(text || "");
+        if (onSendComment) {
+            onSendComment(text || "");
+        }
         handleCommentTextChange("");
     }, [handleCommentTextChange, onSendComment, text]);
 
