@@ -6,7 +6,6 @@ import {
     ArticleView,
 } from "entities/Article";
 import { ArticleType } from "entities/Article/model/types";
-import { fetchArticles } from "../../model/services/fetchArticles";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -15,7 +14,9 @@ import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
 import { Card } from "shared/ui/Card";
 import { Input } from "shared/ui/Input";
-import { articlesActions, articlesSelectors } from "../../model/slices/articlesListSlice";
+import { articlesSelectors } from "../../model/selectors";
+import { fetchArticles } from "../../model/services/fetchArticles";
+import { articlesActions } from "../../model/slices/articlesListSlice";
 import classes from "./ArticlesListPageFilters.module.scss";
 
 interface Props {

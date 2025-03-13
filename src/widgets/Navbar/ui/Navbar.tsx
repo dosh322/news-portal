@@ -1,5 +1,10 @@
 import clsx from "clsx";
-import { getUser, userActions } from "entities/User";
+import {
+    getUser,
+    selectIsUserAdmin,
+    selectIsUserManager,
+    userActions,
+} from "entities/User";
 import { LoginModal } from "features/authByUserName";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -19,6 +24,8 @@ interface NavbarProps {
 
 const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const isAdmin = useSelector(selectIsUserAdmin);
+    const isManager = useSelector(selectIsUserManager);
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const user = useSelector(getUser);
@@ -48,6 +55,15 @@ const Navbar = memo(function Navbar({ className }: NavbarProps) {
                 </AppLink>
                 <Dropdown
                     items={[
+                        ...(isAdmin || isManager
+                            ? [
+                                  {
+                                      key: "admin",
+                                      value: t("admin page"),
+                                      href: routePaths.admin_panel,
+                                  },
+                              ]
+                            : []),
                         {
                             key: "profile",
                             value: t("profile page"),

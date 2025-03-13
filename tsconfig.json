@@ -8,6 +8,7 @@
     "jsx": "react-jsx",
     "allowJs": true, // компилятор будет обрабатывать еще и JS файлы
     "moduleResolution": "node",
+    "isolatedModules": true, // Использование опции isolatedModules гарантирует, что код TypeScript может быть безопасно транспилирован без необходимости использования проверки типов.
     "esModuleInterop": true, // позволяет работать с пакетаи, которые используют commonJs как с обычными пакетами с помощью import (require, module.exports)
     "allowSyntheticDefaultImports": true, // если какая-то либа не имеет default import, лоадер автоматически создает их вместо import * as React from, можно писать import React
     "baseUrl": ".",

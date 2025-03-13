@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
 import { ArticleSortFields, ArticleType } from "entities/Article";
 import { SortOrder } from "shared/types";
-import { articlesActions, articlesSelectors } from "../slices/articlesListSlice";
+import { articlesActions } from "../slices/articlesListSlice";
 import { fetchArticles } from "./fetchArticles";
 
 export const initArticlesPage = createAsyncThunk<
@@ -10,29 +10,25 @@ export const initArticlesPage = createAsyncThunk<
     URLSearchParams,
     ThunkConfig<string>
 >("articles/init", (searchParams, thunkApi) => {
-    const { getState, dispatch } = thunkApi;
-    const isInited = articlesSelectors.selectInited(getState());
+    const { dispatch } = thunkApi;
+    const orderFromUrl = searchParams.get("order") as SortOrder;
+    const sortFromUrl = searchParams.get("sort") as ArticleSortFields;
+    const searchFromUrl = searchParams.get("search");
+    const typeFromUrl = searchParams.get("type") as ArticleType;
 
-    if (!isInited) {
-        const orderFromUrl = searchParams.get("order") as SortOrder;
-        const sortFromUrl = searchParams.get("sort") as ArticleSortFields;
-        const searchFromUrl = searchParams.get("search");
-        const typeFromUrl = searchParams.get("type") as ArticleType;
-
-        if (orderFromUrl) {
-            dispatch(articlesActions.setOrder(orderFromUrl));
-        }
-        if (sortFromUrl) {
-            dispatch(articlesActions.setSort(sortFromUrl));
-        }
-        if (searchFromUrl) {
-            dispatch(articlesActions.setSearch(searchFromUrl));
-        }
-        if (typeFromUrl) {
-            dispatch(articlesActions.setType(typeFromUrl));
-        }
-
-        dispatch(articlesActions.initState());
-        dispatch(fetchArticles());
+    if (orderFromUrl) {
+        dispatch(articlesActions.setOrder(orderFromUrl));
     }
+    if (sortFromUrl) {
+        dispatch(articlesActions.setSort(sortFromUrl));
+    }
+    if (searchFromUrl) {
+        dispatch(articlesActions.setSearch(searchFromUrl));
+    }
+    if (typeFromUrl) {
+        dispatch(articlesActions.setType(typeFromUrl));
+    }
+
+    dispatch(articlesActions.initState());
+    dispatch(fetchArticles());
 });

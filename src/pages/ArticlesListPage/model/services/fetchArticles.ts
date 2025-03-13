@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
 import { ArticleType, IArticle } from "entities/Article";
 import { addQueryParams } from "shared/lib/url/addQueryParams/addQueryParams";
-import { articlesSelectors } from "../slices/articlesListSlice";
+import { articlesSelectors } from "../selectors";
 
 interface FetchArticlesReqParams {
     replace?: boolean;

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { USER_LOCALSTORAGE_KEY } from "shared/constants/localStorage";
 import { User, UserSchema } from "../types/user";
 
@@ -23,6 +23,13 @@ export const userSlice = createSlice({
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
         },
     },
+    selectors: {
+        selectUserRoles: (state) => state.authData?.roles || [],
+    },
 });
 
-export const { actions: userActions, reducer: userReducer } = userSlice;
+export const {
+    actions: userActions,
+    reducer: userReducer,
+    selectors: userSelectors,
+} = userSlice;

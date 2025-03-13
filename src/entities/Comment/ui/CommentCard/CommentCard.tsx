@@ -4,7 +4,7 @@ import { routePaths } from "shared/config/routesConfig";
 import { AppLink } from "shared/ui/AppLink";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { HStack, VStack } from "shared/ui/Stack";
+import { VStack } from "shared/ui/Stack";
 import { Text } from "shared/ui/Text";
 import { Comment } from "../../model/types/comment";
 import classes from "./CommentCard.module.scss";
@@ -22,13 +22,17 @@ export const CommentCard = memo(function CommentCard({
 }: CommentCardProps) {
     if (isLoading) {
         return (
-            <HStack className={clsx(classes.CommentCard, classes.loading, className)}>
+            <VStack
+                max
+                gap="8"
+                className={clsx(classes.CommentCard, classes.loading, className)}
+            >
                 <div className={classes.header}>
                     <Skeleton width={30} height={30} border="50%" />
                     <Skeleton height={16} width={100} className={classes.username} />
                 </div>
                 <Skeleton className={classes.text} width="100%" height={50} />
-            </HStack>
+            </VStack>
         );
     }
 

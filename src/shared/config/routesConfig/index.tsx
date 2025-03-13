@@ -12,6 +12,7 @@ export enum APP_ROUTES {
     ARTICLE = "article",
     ARTICLE_CREATE = "article_create",
     ARTICLE_EDIT = "article_edit",
+    ADMIN_PANEL = "admin_panel",
     NOT_FOUND = "any",
 }
 
@@ -23,5 +24,6 @@ export const routePaths: Record<APP_ROUTES, string> = {
     [APP_ROUTES.ARTICLE]: "/articles/", // + :id
     [APP_ROUTES.ARTICLE_CREATE]: "/articles/new",
     [APP_ROUTES.ARTICLE_EDIT]: "/articles/:id/edit",
+    [APP_ROUTES.ADMIN_PANEL]: "/admin",
     [APP_ROUTES.NOT_FOUND]: "*",
 };

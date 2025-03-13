@@ -2,8 +2,10 @@ import clsx from "clsx";
 import { CommentList } from "entities/Comment";
 import { getUser } from "entities/User";
 import { AddCommentForm } from "features/addCommentForm";
+import { Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { Spinner } from "shared/ui/Spinner";
 import { VStack } from "shared/ui/Stack";
 import { Text, TextSize } from "shared/ui/Text";
 import { useArticleComments, useSaveArticleComment } from "../../api/articleCommentsApi";
@@ -33,8 +35,10 @@ function ArticleComments({ className, id }: Props) {
     return (
         <VStack gap="16" max className={clsx(className)}>
             <Text size={TextSize.L} title={t("comments")} />
-            <AddCommentForm onSendComment={handleSaveComment} />
-            <CommentList comments={data} isLoading={isLoading} />
+            <Suspense fallback={<Spinner />}>
+                <AddCommentForm onSendComment={handleSaveComment} />
+            </Suspense>
+            <CommentList comments={data} isLoading={isCommentSaving || isLoading} />
         </VStack>
     );
 }

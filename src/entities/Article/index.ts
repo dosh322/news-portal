@@ -1,3 +1,4 @@
+export { articleSelectors } from "./model/selectors";
 export { fetchArticle } from "./model/services/fetchArticleById";
 export { articleActions } from "./model/slice/articleSlice";
 export { ArticleSortFields, ArticleType, ArticleView } from "./model/types";
@@ -7,10 +8,3 @@ export { ArticleList } from "./ui/ArticleList";
 export { ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector";
 export { ArticlesViewSelector } from "./ui/ArticlesViewSelector/ArticlesViewSelector";
 export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
-import { selectCanEditArticle } from "./model/selectors/article";
-import { selectors } from "./model/slice/articleSlice";
-
-export const articleSelectors = {
-    ...selectors,
-    selectCanEditArticle,
-};

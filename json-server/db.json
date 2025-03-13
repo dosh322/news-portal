@@ -36,14 +36,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "role": [
+        "ADMIN"
+      ],
       "avatar": "https://b.fssta.com/uploads/application/soccer/headshots/885.vresize.350.350.medium.19.png"
     },
     {
       "id": "2",
       "username": "jude",
       "password": "123",
-      "role": "USER",
+      "role": [
+        "USER"
+      ],
+      "avatar": "https://api.kmanalysis.com/news-images/GettyImages-1656777561-1140x760.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "role": [
+        "MANAGER"
+      ],
       "avatar": "https://api.kmanalysis.com/news-images/GettyImages-1656777561-1140x760.jpg"
     }
   ],
@@ -134,6 +147,36 @@
       "userId": "1",
       "articleId": "7",
       "id": "BGjIE9B"
+    },
+    {
+      "text": "123",
+      "userId": "1",
+      "articleId": "7",
+      "id": "XgQs-kg"
+    },
+    {
+      "text": "asdasd",
+      "userId": "1",
+      "articleId": "7",
+      "id": "pXGi7Vu"
+    },
+    {
+      "text": "zxczxczxczxczxc",
+      "userId": "1",
+      "articleId": "7",
+      "id": "nw2uAoV"
+    },
+    {
+      "text": "asdasd",
+      "userId": "1",
+      "articleId": "7",
+      "id": "sVYu9QM"
+    },
+    {
+      "text": "zzzz",
+      "userId": "1",
+      "articleId": "7",
+      "id": "l7UCSfm"
     }
   ],
   "articles": [

@@ -11,7 +11,7 @@ const articlesAdapter = createEntityAdapter<IArticle, string>({
     selectId: (article) => article.id,
 });
 
-const articlesCRUDSelectors = articlesAdapter.getSelectors<StateSchema>(
+export const articlesCRUDSelectors = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articles || articlesAdapter.getInitialState(),
 );
 
@@ -62,19 +62,6 @@ const articlesSlice = createSlice({
             state.type = action.payload;
         },
     },
-    selectors: {
-        selectArticlesAreLoading: (state) => state.isLoading,
-        selectArticlesError: (state) => state.error,
-        selectView: (state) => state.view,
-        selectLimit: (state) => state.limit || 9,
-        selectPage: (state) => state.page,
-        selectHasMore: (state) => state.hasMore,
-        selectInited: (state) => state._inited,
-        selectSort: (state) => state.sort,
-        selectOrder: (state) => state.order,
-        selectSearch: (state) => state.search,
-        selectType: (state) => state.type,
-    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticles.pending, (state, action) => {
@@ -107,8 +94,3 @@ const injectedArticlesSlice = articlesSlice.injectInto(rootReducer);
 
 export const { actions: articlesActions, reducer: articlesReducer } =
     injectedArticlesSlice;
-
-export const articlesSelectors = {
-    ...injectedArticlesSlice.selectors,
-    ...articlesCRUDSelectors,
-};

@@ -11,7 +11,7 @@ import { Icon } from "shared/ui/Icon";
 import { Skeleton } from "shared/ui/Skeleton";
 import { HStack, VStack } from "shared/ui/Stack";
 import { Text, TextAlign, TextSize, TextTheme } from "shared/ui/Text";
-import { articleSelectors } from "../../.";
+import { articleSelectors } from "../../model/selectors";
 import { fetchArticle } from "../../model/services/fetchArticleById";
 import { ArticleBlock, ArticleBlockType } from "../../model/types";
 import { ArticleCodeBlock } from "../ArticleCodeBlock/ArticleCodeBlock";
