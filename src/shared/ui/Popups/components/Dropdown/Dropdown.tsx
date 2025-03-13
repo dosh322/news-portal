@@ -2,7 +2,8 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { AnchorProps } from "@headlessui/react/dist/internal/floating";
 import clsx from "clsx";
 import { Fragment, ReactNode } from "react";
-import { AppLink } from "../AppLink";
+import { AppLink } from "../../../AppLink";
+import popupClasses from "../../styles/popup.module.scss";
 import classes from "./Dropdown.module.scss";
 
 export interface DropdownItem {
@@ -27,8 +28,8 @@ export function Dropdown({
     direction = "bottom end",
 }: DropdownProps) {
     return (
-        <Menu as="div" className={clsx(classes.Dropdown, className)}>
-            <MenuButton className={classes.btn}>{trigger}</MenuButton>
+        <Menu as="div" className={clsx(popupClasses.popup, className)}>
+            <MenuButton className={popupClasses.trigger}>{trigger}</MenuButton>
             <MenuItems anchor={direction} className={classes.menu}>
                 {items.map((item) => {
                     const content = ({ active }: { active: boolean }) => (
@@ -36,7 +37,7 @@ export function Dropdown({
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
-                            className={clsx(classes.item, active && classes.active)}
+                            className={clsx(classes.item, active && popupClasses.active)}
                         >
                             {item.value}
                         </button>

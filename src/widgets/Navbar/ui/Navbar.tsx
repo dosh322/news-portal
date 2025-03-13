@@ -1,20 +1,15 @@
 import clsx from "clsx";
-import {
-    getUser,
-    selectIsUserAdmin,
-    selectIsUserManager,
-    userActions,
-} from "entities/User";
+import { getUser } from "entities/User";
 import { LoginModal } from "features/authByUserName";
+import { AvatarDropdown } from "features/avatarDropdown";
+import { NotificationButton } from "features/notificationButton";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { routePaths } from "shared/config/routesConfig";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink";
-import { Avatar } from "shared/ui/Avatar";
 import { Button, ButtonTheme } from "shared/ui/Button";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { HStack } from "shared/ui/Stack";
 import { Text, TextTheme } from "shared/ui/Text";
 import classes from "./Navbar.module.scss";
 
@@ -24,10 +19,7 @@ interface NavbarProps {
 
 const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const isAdmin = useSelector(selectIsUserAdmin);
-    const isManager = useSelector(selectIsUserManager);
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
     const user = useSelector(getUser);
 
     const handleModalOpen = useCallback(() => {
@@ -37,10 +29,6 @@ const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const handleModalClose = useCallback(() => {
         setIsAuthModalOpen(false);
     }, []);
-
-    const handleLogout = () => {
-        dispatch(userActions.logout());
-    };
 
     if (user) {
         return (
@@ -53,27 +41,10 @@ const Navbar = memo(function Navbar({ className }: NavbarProps) {
                 <AppLink to={routePaths.article_create} theme={AppLinkTheme.SECONDARY}>
                     {t("create article")}
                 </AppLink>
-                <Dropdown
-                    items={[
-                        ...(isAdmin || isManager
-                            ? [
-                                  {
-                                      key: "admin",
-                                      value: t("admin page"),
-                                      href: routePaths.admin_panel,
-                                  },
-                              ]
-                            : []),
-                        {
-                            key: "profile",
-                            value: t("profile page"),
-                            href: routePaths.profile + user.id,
-                        },
-                        { key: "logout", value: t("logout"), onClick: handleLogout },
-                    ]}
-                    trigger={<Avatar size={30} src={user.avatar} />}
-                    className={classes.dropdown}
-                />
+                <HStack gap="16" className={classes.actions}>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
             </nav>
         );
     }

@@ -7,8 +7,9 @@ import {
 import { AnchorPropsWithSelection } from "@headlessui/react/dist/internal/floating";
 import clsx from "clsx";
 import { Fragment, ReactNode } from "react";
-import { Button } from "../Button";
-import { HStack } from "../Stack";
+import { Button } from "../../../Button";
+import { HStack } from "../../../Stack";
+import popupClasses from "../../styles/popup.module.scss";
 import classes from "./ListBox.module.scss";
 
 export interface ListBoxItem {
@@ -44,11 +45,11 @@ export function ListBox({
             <HListBox
                 disabled={readonly}
                 as="div"
-                className={clsx(classes.ListBox, className)}
+                className={clsx(popupClasses.popup, className)}
                 value={value}
                 onChange={onChange}
             >
-                <HListboxButton disabled={readonly} className={classes.trigger}>
+                <HListboxButton disabled={readonly} className={popupClasses.trigger}>
                     <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListboxButton>
                 <HListboxOptions anchor={direction} className={clsx(classes.options)}>
@@ -63,8 +64,8 @@ export function ListBox({
                                 <li
                                     className={clsx(
                                         classes.item,
-                                        (focus || selected) && classes.active,
-                                        item.disabled && classes.disabled,
+                                        (focus || selected) && popupClasses.active,
+                                        item.disabled && popupClasses.disabled,
                                     )}
                                 >
                                     {selected && "!!!"}
