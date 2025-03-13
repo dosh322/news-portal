@@ -1,0 +1,16 @@
+{
+  "cancel": "cancel",
+  "edit": "edit",
+  "loadingErrorBody": "loadingErrorBody",
+  "loadingErrorTitle": "loadingErrorTitle",
+  "profile": "profile",
+  "save": "save",
+  "yourAge": "yourAge",
+  "yourAvatar": "yourAvatar",
+  "yourCity": "yourCity",
+  "yourCountry": "yourCountry",
+  "yourCurrency": "yourCurrency",
+  "yourFName": "yourFName",
+  "yourLName": "yourLName",
+  "yourUsername": "yourUsername"
+}
