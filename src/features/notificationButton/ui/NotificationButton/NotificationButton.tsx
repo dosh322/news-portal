@@ -1,12 +1,13 @@
+import clsx from "clsx";
 import { NotificationList } from "entities/Notification";
-import { memo } from "react";
+import { memo, useState } from "react";
+import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "shared/assets/icons/notification-20-20.svg";
-import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonTheme } from "shared/ui/Button";
+import { Drawer } from "shared/ui/Drawer/Drawer";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Popover } from "shared/ui/Popups";
 import classes from "./NotificationButton.module.scss";
-import clsx from "clsx";
 
 interface NotificationButtonProps {
     className?: string;
@@ -15,16 +16,38 @@ interface NotificationButtonProps {
 export const NotificationButton = memo(function NotificationButton({
     className,
 }: NotificationButtonProps) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleDrawerOpen = () => {
+        setIsOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+        setIsOpen(false);
+    };
+
+    const trigger = (
+        <Button theme={ButtonTheme.CLEAR} onClick={handleDrawerOpen}>
+            <Icon Svg={NotificationIcon} inverted />
+        </Button>
+    );
+
     return (
-        <Popover
-            className={clsx(classes.NotificationButton, className)}
-            trigger={
-                <Button theme={ButtonTheme.CLEAR}>
-                    <Icon Svg={NotificationIcon} inverted />
-                </Button>
-            }
-        >
-            <NotificationList className={classes.notifications} />
-        </Popover>
+        <div>
+            <BrowserView>
+                <Popover
+                    className={clsx(classes.NotificationButton, className)}
+                    trigger={trigger}
+                >
+                    <NotificationList className={classes.notifications} />
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                {trigger}
+                <Drawer onClose={handleDrawerClose} isOpen={isOpen}>
+                    <NotificationList />
+                </Drawer>
+            </MobileView>
+        </div>
     );
 });
