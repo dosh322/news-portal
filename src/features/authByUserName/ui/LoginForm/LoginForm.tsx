@@ -4,10 +4,10 @@ import { FormEvent, memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { Button, ButtonTheme } from "shared/ui/Button";
-import { Input } from "shared/ui/Input";
-import { Text, TextTheme } from "shared/ui/Text";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { Input } from "@/shared/ui/Input";
+import { Text, TextTheme } from "@/shared/ui/Text";
 import { loginFormActions, loginFormSelectors } from "../../model/slices/loginFormSlice";
 import classes from "./LoginForm.module.scss";
 

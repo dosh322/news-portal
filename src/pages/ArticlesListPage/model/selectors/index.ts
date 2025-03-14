@@ -1,5 +1,5 @@
-import { StateSchema } from "app/providers/StoreProvider";
-import { ArticleSortFields, ArticleType, ArticleView } from "entities/Article";
+import { StateSchema } from "@/app/providers/StoreProvider";
+import { ArticleSortFields, ArticleType, ArticleView } from "@/entities/Article";
 
 export const articlesSelectors = {
     selectArticlesAreLoading: (state: StateSchema) => state.articles?.isLoading || false,

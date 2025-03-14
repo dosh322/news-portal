@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { memo } from "react";
-import { Text, TextAlign } from "shared/ui/Text";
+import { Text, TextAlign } from "@/shared/ui/Text";
 import { ArticleImageBlock as IArticleImageBlock } from "../../model/types";
 import classes from "./ArticleImageBlock.module.scss";
 

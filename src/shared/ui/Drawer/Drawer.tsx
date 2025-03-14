@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { memo, ReactNode, useCallback, useEffect } from "react";
-import { useAnimationLibs } from "shared/lib/components/AnimationProvider";
+import { useAnimationLibs } from "@/shared/lib/components/AnimationProvider";
 import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal";
 import classes from "./Drawer.module.scss";

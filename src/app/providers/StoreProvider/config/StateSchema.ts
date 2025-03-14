@@ -1,13 +1,13 @@
 import { AxiosInstance } from "axios";
-import { ArticleSchema } from "entities/Article";
-import type { UserSchema } from "entities/User";
-import { AddCommentFormSchema } from "features/addCommentForm";
-import type { LoginFormSchema } from "features/authByUserName";
-import { ScrollRestorationSchema } from "features/scrollRestoration";
-import { ArticlesListSchema } from "pages/ArticlesListPage";
-import { rtkApi } from "shared/api/rtkApi";
+import { ArticleSchema } from "@/entities/Article";
+import type { UserSchema } from "@/entities/User";
+import { AddCommentFormSchema } from "@/features/addCommentForm";
+import type { LoginFormSchema } from "@/features/authByUserName";
+import { ScrollRestorationSchema } from "@/features/scrollRestoration";
+import { ArticlesListSchema } from "@/pages/ArticlesListPage";
+import { rtkApi } from "@/shared/api/rtkApi";
 import { RootState } from "./store";
-import { ProfileSchema } from "features/EditableProfileCard";
+import { ProfileSchema } from "@/features/EditableProfileCard";
 
 export interface StaticReducers {
     user: UserSchema;

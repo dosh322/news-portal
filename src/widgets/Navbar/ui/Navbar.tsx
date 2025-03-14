@@ -1,16 +1,16 @@
 import clsx from "clsx";
-import { getUser } from "entities/User";
-import { LoginModal } from "features/authByUserName";
-import { AvatarDropdown } from "features/avatarDropdown";
-import { NotificationButton } from "features/notificationButton";
+import { getUser } from "@/entities/User";
+import { LoginModal } from "@/features/authByUserName";
+import { AvatarDropdown } from "@/features/avatarDropdown";
+import { NotificationButton } from "@/features/notificationButton";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { routePaths } from "shared/config/routesConfig";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink";
-import { Button, ButtonTheme } from "shared/ui/Button";
-import { HStack } from "shared/ui/Stack";
-import { Text, TextTheme } from "shared/ui/Text";
+import { routePaths } from "@/shared/config/routesConfig";
+import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { HStack } from "@/shared/ui/Stack";
+import { Text, TextTheme } from "@/shared/ui/Text";
 import classes from "./Navbar.module.scss";
 
 interface NavbarProps {

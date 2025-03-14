@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { ArticleList } from "entities/Article";
+import { ArticleList } from "@/entities/Article";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { VStack } from "shared/ui/Stack";
-import { Text, TextSize } from "shared/ui/Text";
+import { VStack } from "@/shared/ui/Stack";
+import { Text, TextSize } from "@/shared/ui/Text";
 import { useArticleRecommendations } from "../../api/articleRecommendationsApi";
 
 interface ArticleRecommendationsListProps {

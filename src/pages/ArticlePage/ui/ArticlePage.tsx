@@ -1,9 +1,9 @@
-import { Article } from "entities/Article";
-import { ArticleRecommendationsList } from "features/articleRecommendationsList";
+import { Article } from "@/entities/Article";
+import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import { memo } from "react";
 import { useParams } from "react-router-dom";
-import { VStack } from "shared/ui/Stack";
-import Page from "widgets/Page/Page";
+import { VStack } from "@/shared/ui/Stack";
+import Page from "@/widgets/Page/Page";
 import { ArticleComments } from "./ArticleComments/ArticleComments";
 import classes from "./ArticlePage.module.scss";
 import { ArticlePageHeader } from "./ArticlePageHeader/ArticlePageHeader";

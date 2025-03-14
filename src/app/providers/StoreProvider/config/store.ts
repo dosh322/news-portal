@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { $api } from "shared/api/api";
-import { rtkApi } from "shared/api/rtkApi";
+import { $api } from "@/shared/api/api";
+import { rtkApi } from "@/shared/api/rtkApi";
 import { rootReducer } from "./reducer";
 import { StateSchema } from "./StateSchema";
 

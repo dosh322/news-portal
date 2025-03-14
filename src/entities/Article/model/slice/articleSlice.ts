@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { rootReducer } from "app/providers/StoreProvider";
+import { rootReducer } from "@/app/providers/StoreProvider";
 import { fetchArticle } from "../services/fetchArticleById";
 import { ArticleSchema } from "../types";
 

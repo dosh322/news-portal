@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import { ArticleCodeBlock as IArticleCodeBlock } from "../../model/types";
 import { memo } from "react";
-import { Code } from "shared/ui/Code";
+import { Code } from "@/shared/ui/Code";
 import classes from "./ArticleCodeBlock.module.scss";
 
 interface ArticleCodeBlockProps {

@@ -1,12 +1,12 @@
-import { AboutPage } from "pages/AboutPage";
-import { AdminPanelPage } from "pages/AdminPanelPage";
-import { ArticleEditPage } from "pages/ArticleEditPage";
-import { ArticlePage } from "pages/ArticlePage";
-import { ArticlesListPage } from "pages/ArticlesListPage";
-import { HomePage } from "pages/HomePage";
-import { NotFoundPage } from "pages/NotFoundPage";
-import { ProfilePage } from "pages/ProfilePage";
-import { AppRoutesProps, routePaths } from "shared/config/routesConfig";
+import { AboutPage } from "@/pages/AboutPage";
+import { AdminPanelPage } from "@/pages/AdminPanelPage";
+import { ArticleEditPage } from "@/pages/ArticleEditPage";
+import { ArticlePage } from "@/pages/ArticlePage";
+import { ArticlesListPage } from "@/pages/ArticlesListPage";
+import { HomePage } from "@/pages/HomePage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
+import { ProfilePage } from "@/pages/ProfilePage";
+import { AppRoutesProps, routePaths } from "@/shared/config/routesConfig";
 import { RequireAuth } from "../ui/RequireAuth";
 
 export const createRoutesConfig = (

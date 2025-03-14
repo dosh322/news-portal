@@ -1,7 +1,7 @@
-import { useTheme } from "app/providers/ThemeProvider";
+import { useTheme } from "@/app/providers/ThemeProvider";
 import clsx from "clsx";
 import { PropsWithChildren } from "react";
-import { useModal } from "shared/lib/hooks/useModal/useModal";
+import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 import { Overlay } from "../../Overlay/Overlay";
 import { Portal } from "../../Portal";
 import classes from "./Modal.module.scss";

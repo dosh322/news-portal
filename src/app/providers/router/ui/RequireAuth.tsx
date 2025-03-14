@@ -1,8 +1,8 @@
-import { getUser } from "entities/User";
+import { getUser } from "@/entities/User";
 import { PropsWithChildren } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { routePaths } from "shared/config/routesConfig";
+import { routePaths } from "@/shared/config/routesConfig";
 
 function RequireAuth({ children }: PropsWithChildren) {
     const user = useSelector(getUser);

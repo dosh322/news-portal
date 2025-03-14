@@ -3,7 +3,7 @@ import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkele
 import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso";
-import { Text, TextSize } from "shared/ui/Text";
+import { Text, TextSize } from "@/shared/ui/Text";
 import { Article, ArticleView } from "../../model/types";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import classes from "./ArticleList.module.scss";

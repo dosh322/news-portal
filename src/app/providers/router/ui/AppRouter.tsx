@@ -1,6 +1,6 @@
-import App from "app/App";
-import ErrorBoundary from "app/providers/ErrorBoundary";
-import { selectIsUserAdmin, selectIsUserManager } from "entities/User";
+import App from "@/app/App";
+import ErrorBoundary from "@/app/providers/ErrorBoundary";
+import { selectIsUserAdmin, selectIsUserManager } from "@/entities/User";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

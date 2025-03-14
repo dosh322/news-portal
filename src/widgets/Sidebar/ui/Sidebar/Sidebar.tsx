@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { memo, useState } from "react";
 import { useSelector } from "react-redux";
-import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button";
-import { VStack } from "shared/ui/Stack";
-import { LangSwitcher } from "widgets/LangSwithcer";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button";
+import { VStack } from "@/shared/ui/Stack";
+import { LangSwitcher } from "@/widgets/LangSwithcer";
+import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 import { selectSidebarItems } from "../../model/selectors/selectors";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import classes from "./Sidebar.module.scss";

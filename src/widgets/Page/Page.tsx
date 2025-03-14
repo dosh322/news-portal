@@ -1,16 +1,16 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import { clsx } from "clsx";
 import {
     scrollRestorationActions,
     selectScrollPositionByPath,
-} from "features/scrollRestoration";
+} from "@/features/scrollRestoration";
 import { MutableRefObject, PropsWithChildren, UIEvent, memo, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
+import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
 import classes from "./Page.module.scss";
 
 interface Props {

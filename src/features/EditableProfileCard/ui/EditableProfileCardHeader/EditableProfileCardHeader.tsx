@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import { getUser } from "entities/User";
+import { getUser } from "@/entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { Button, ButtonTheme } from "shared/ui/Button";
-import { HStack } from "shared/ui/Stack";
-import { Text } from "shared/ui/Text";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { HStack } from "@/shared/ui/Stack";
+import { Text } from "@/shared/ui/Text";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { profileActions, profileSelectors } from "../../model/slice/profileSlice";
 

@@ -1,11 +1,11 @@
-import { ArticleList } from "entities/Article";
+import { ArticleList } from "@/entities/Article";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect";
-import { Text, TextAlign } from "shared/ui/Text";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect";
+import { Text, TextAlign } from "@/shared/ui/Text";
 import { articlesSelectors } from "../../model/selectors";
 import { fetchNextArticles } from "../../model/services/fetchNextArticlesPage/fetchNextArticles";
 import { initArticlesPage } from "../../model/services/initArticlesPage";

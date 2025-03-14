@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
-import { Button } from "shared/ui/Button";
+import { Button } from "@/shared/ui/Button";
 
 import classes from "./PageError.module.scss";
 

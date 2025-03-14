@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { rootReducer } from "app/providers/StoreProvider";
+import { rootReducer } from "@/app/providers/StoreProvider";
 import { AddCommentFormSchema } from "../types/addCommentForm";
 
 const initialState: AddCommentFormSchema = {

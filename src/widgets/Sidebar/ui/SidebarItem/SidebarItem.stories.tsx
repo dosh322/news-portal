@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Theme } from "app/providers/ThemeProvider";
-import { routePaths } from "shared/config/routesConfig";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
+import { routePaths } from "@/shared/config/routesConfig";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
 import { SidebarItem } from "./SidebarItem";
 
-import MainIcon from "shared/assets/icons/main-20-20.svg";
+import MainIcon from "@/shared/assets/icons/main-20-20.svg";
 
 const meta = {
     title: "widgets/SidebarItem",

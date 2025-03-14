@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { getUser } from "entities/User";
+import { getUser } from "@/entities/User";
 import { selectors } from "../slice/articleSlice";
 
 export const selectCanEditArticle = createSelector(
