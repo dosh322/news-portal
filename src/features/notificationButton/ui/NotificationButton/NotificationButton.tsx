@@ -1,13 +1,12 @@
-import clsx from "clsx";
 import { NotificationList } from "@/entities/Notification";
-import { memo, useState } from "react";
-import { BrowserView, MobileView } from "react-device-detect";
 import NotificationIcon from "@/shared/assets/icons/notification-20-20.svg";
-import { AnimationProvider } from "@/shared/lib/components/AnimationProvider";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { Drawer } from "@/shared/ui/Drawer/Drawer";
 import { Icon } from "@/shared/ui/Icon/Icon";
 import { Popover } from "@/shared/ui/Popups";
+import clsx from "clsx";
+import { memo, useState } from "react";
+import { BrowserView, MobileView } from "react-device-detect";
 import classes from "./NotificationButton.module.scss";
 
 interface NotificationButtonProps {
@@ -45,11 +44,9 @@ export const NotificationButton = memo(function NotificationButton({
             </BrowserView>
             <MobileView>
                 {trigger}
-                <AnimationProvider>
-                    <Drawer onClose={handleDrawerClose} isOpen={isOpen}>
-                        <NotificationList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer onClose={handleDrawerClose} isOpen={isOpen}>
+                    <NotificationList />
+                </Drawer>
             </MobileView>
         </div>
     );
