@@ -1,6 +1,6 @@
+import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "@/shared/ui/Button";
 
 interface Props {
     classname?: string;

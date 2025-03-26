@@ -12,6 +12,7 @@
   "Reload page": "Reload page",
   "toggle": "toggle",
   "login": "Log in",
+  "your review": "Your Review",
   "defaultPlaceholder": "Type text...",
   "logout": "Log out",
   "sort": "Sort by:",
@@ -20,5 +21,7 @@
   "byName": "name",
   "byCreateAt": "created at",
   "byViews": "views",
-  "error": "Error"
+  "error": "Error",
+  "close": "Close",
+  "send": "Send"
 }

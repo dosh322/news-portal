@@ -23,7 +23,9 @@ function Popover({
 }: PropsWithChildren<Props>) {
     return (
         <HPopover className={clsx(className, popupClasses.popup)}>
-            <HPopoverButton className={popupClasses.trigger}>{trigger}</HPopoverButton>
+            <HPopoverButton as="div" className={popupClasses.trigger}>
+                {trigger}
+            </HPopoverButton>
             <HPopoverPanel anchor={anchor} className={classes.panel}>
                 {children}
             </HPopoverPanel>
