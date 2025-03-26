@@ -742,5 +742,37 @@
       "username": "jude",
       "avatar": "https://api.kmanalysis.com/news-images/GettyImages-1656777561-1140x760.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "amogus",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "blabla",
+      "id": 2
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

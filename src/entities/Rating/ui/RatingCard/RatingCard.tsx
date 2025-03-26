@@ -6,11 +6,9 @@ import { Modal } from "@/shared/ui/Modal";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { StarRating } from "@/shared/ui/StarRating/StarRating";
 import { Text } from "@/shared/ui/Text";
-import clsx from "clsx";
 import { memo, useCallback, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import { useTranslation } from "react-i18next";
-import classes from "./RatingCard.module.scss";
 
 interface RatingCardProps {
     className?: string;
@@ -19,6 +17,7 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rating?: number;
 }
 
 export const RatingCard = memo(function RatingCard({
@@ -28,10 +27,11 @@ export const RatingCard = memo(function RatingCard({
     hasFeedback,
     onCancel,
     title,
+    rating = 0,
 }: RatingCardProps) {
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rating);
     const [feedback, setFeedback] = useState("");
 
     const handleSelectStart = useCallback(
@@ -68,10 +68,14 @@ export const RatingCard = memo(function RatingCard({
     );
 
     return (
-        <Card className={clsx(classes.RatingCard, className)}>
+        <Card max className={className}>
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={handleSelectStart} />
+                <Text title={starsCount ? t("ty") : title} />
+                <StarRating
+                    size={40}
+                    onSelect={handleSelectStart}
+                    selectedStars={starsCount}
+                />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>

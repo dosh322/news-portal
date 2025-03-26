@@ -10,16 +10,21 @@ export enum CardTheme {
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     theme?: CardTheme;
+    max?: boolean;
 }
 
 export const Card = memo(function Card({
     className,
     children,
     theme = CardTheme.NORMAL,
+    max = false,
     ...otherProps
 }: PropsWithChildren<CardProps>) {
     return (
-        <div className={clsx(classes.Card, className, classes[theme])} {...otherProps}>
+        <div
+            className={clsx(classes.Card, className, classes[theme], max && classes.max)}
+            {...otherProps}
+        >
             {children}
         </div>
     );
