@@ -1,7 +1,7 @@
 import StarIcon from "@/shared/assets/icons/star.svg";
-import { Icon } from "@/shared/ui/Icon/Icon";
 import clsx from "clsx";
 import { memo, useState } from "react";
+import { Icon } from "../Icon/Icon";
 import classes from "./StarRating.module.scss";
 
 interface StarRatingProps {
