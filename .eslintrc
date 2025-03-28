@@ -91,7 +91,8 @@
         "i18next/no-literal-string": ["error", { "markupOnly": true, "ignoreAttribute": ["data-testid", "to", "target", "justify", "align", "direction", "gap", "role"] }],
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/no-misused-promises": "off",
-        "imports-checker/imports-checker": ["error", { "alias": "@" }]
+        "imports-checker/imports-checker": ["error", { "alias": "@" }],
+        "imports-checker/public-api-imports": ["error", { "alias": "@", "testFilesPatterns": ["**/*.test.*", "**/*.story.*", "**/StoreDecorator.tsx"] }]
     },
     "overrides": [
         {

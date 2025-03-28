@@ -1,6 +1,6 @@
+import { Page } from "@/widgets/Page";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import Page from "@/widgets/Page/Page";
 
 const HomePage = memo(function HomePage() {
     const { t } = useTranslation();

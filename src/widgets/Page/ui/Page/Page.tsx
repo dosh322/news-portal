@@ -18,7 +18,7 @@ interface Props {
     onScrollEnd?: () => void;
 }
 
-export default memo(function Page({
+export const Page = memo(function Page({
     children,
     className,
     onScrollEnd,

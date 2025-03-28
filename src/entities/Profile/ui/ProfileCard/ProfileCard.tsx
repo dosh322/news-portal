@@ -1,13 +1,12 @@
-import clsx from "clsx";
-import { Country } from "@/entities/Country";
-import { CountrySelect } from "@/entities/Country/ui/CountrySelect";
+import { Country, CountrySelect } from "@/entities/Country";
 import { Currency, CurrencySelect } from "@/entities/Currency";
-import { useTranslation } from "react-i18next";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Input } from "@/shared/ui/Input";
 import { Spinner } from "@/shared/ui/Spinner";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { Text, TextAlign, TextTheme } from "@/shared/ui/Text";
+import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import { Profile } from "../../model/types/profile";
 import classes from "./ProfileCard.module.scss";
 

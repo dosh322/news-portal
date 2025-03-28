@@ -2,7 +2,7 @@ import { Article } from "@/entities/Article";
 import { ArticleRating } from "@/features/articleRating";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import { VStack } from "@/shared/ui/Stack";
-import Page from "@/widgets/Page/Page";
+import { Page } from "@/widgets/Page";
 import { memo } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleComments } from "./ArticleComments/ArticleComments";

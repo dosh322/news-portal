@@ -1,6 +1,6 @@
+import { Page } from "@/widgets/Page";
 import clsx from "clsx";
 import { memo } from "react";
-import Page from "@/widgets/Page/Page";
 import { ArticlesInfiniteList } from "../ArticlesInfiniteList/ArticlesInfiniteList";
 import ArticlesListPageFilters from "../ArticlesListPageFilters/ArticlesListPageFilters";
 import classes from "./ArticlesListPage.module.scss";

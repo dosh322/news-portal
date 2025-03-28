@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { selectCanEditArticle } from "@/entities/Article/model/selectors/article";
+import { articleSelectors } from "@/entities/Article";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ function ArticlePageHeader({ className }: Props) {
     const { t } = useTranslation("article");
     const { id } = useParams();
     const navigate = useNavigate();
-    const showEditBtn = useSelector(selectCanEditArticle);
+    const showEditBtn = useSelector(articleSelectors.selectCanEditArticle);
 
     const handleBackBtnClick = useCallback(() => {
         navigate(routePaths.articles);
