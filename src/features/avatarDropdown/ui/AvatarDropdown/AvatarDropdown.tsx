@@ -1,16 +1,16 @@
-import clsx from "clsx";
 import {
     getUser,
     selectIsUserAdmin,
     selectIsUserManager,
     userActions,
 } from "@/entities/User";
+import { routePaths } from "@/shared/constants/router";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Dropdown } from "@/shared/ui/Popups";
+import clsx from "clsx";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { routePaths } from "@/shared/config/routesConfig";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Dropdown } from "@/shared/ui/Popups";
 
 interface AvatarDropdownProps {
     className?: string;

@@ -1,11 +1,11 @@
-import clsx from "clsx";
-import { memo } from "react";
-import { routePaths } from "@/shared/config/routesConfig";
+import { routePaths } from "@/shared/constants/router";
 import { AppLink } from "@/shared/ui/AppLink";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import { VStack } from "@/shared/ui/Stack";
 import { Text } from "@/shared/ui/Text";
+import clsx from "clsx";
+import { memo } from "react";
 import { Comment } from "../../model/types/comment";
 import classes from "./CommentCard.module.scss";
 

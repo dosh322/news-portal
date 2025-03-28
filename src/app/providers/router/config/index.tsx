@@ -6,7 +6,8 @@ import { ArticlesListPage } from "@/pages/ArticlesListPage";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
-import { AppRoutesProps, routePaths } from "@/shared/config/routesConfig";
+import { routePaths } from "@/shared/constants/router";
+import { AppRoutesProps } from "@/shared/types/router";
 import { RequireAuth } from "../ui/RequireAuth";
 
 export const createRoutesConfig = (
