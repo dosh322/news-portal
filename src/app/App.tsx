@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { Navbar } from "@/widgets/Navbar";
 import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
-import { useTheme } from "./providers/ThemeProvider";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 
 function App() {
     const { theme } = useTheme();

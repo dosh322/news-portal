@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Theme } from "@/app/providers/ThemeProvider";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { LangSwitcher } from "./LangSwitcher";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { Theme } from "@/shared/constants/theme";
 
 const meta = {
-    title: "widgets/LangSwitcher",
-    component: LangSwitcher,
+    title: "widgets/ThemeSwitcher",
+    component: ThemeSwitcher,
     tags: ["autodocs"],
     args: {},
-} satisfies Meta<typeof LangSwitcher>;
+} satisfies Meta<typeof ThemeSwitcher>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

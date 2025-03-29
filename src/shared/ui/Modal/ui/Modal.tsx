@@ -1,4 +1,4 @@
-import { useTheme } from "@/app/providers/ThemeProvider";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import clsx from "clsx";
 import { PropsWithChildren } from "react";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";

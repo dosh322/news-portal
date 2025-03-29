@@ -1,6 +1,6 @@
-import { Theme } from "@/app/providers/ThemeProvider";
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { Theme } from "@/shared/constants/theme";
 import type { Preview } from "@storybook/react";
 
 import "app/styles/index.scss";

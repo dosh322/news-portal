@@ -1,5 +1,7 @@
+import { LOCAL_STORAGE_THEME_KEY } from "@/shared/constants/localStorage";
+import { Theme } from "@/shared/constants/theme";
 import { PropsWithChildren, useEffect, useMemo, useState } from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
+import { ThemeContext } from "@/shared/lib/context/ThemeContext/ThemeContext";
 
 interface Props {
     initialTheme?: Theme;

@@ -92,6 +92,7 @@
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/no-misused-promises": "off",
         "imports-checker/imports-checker": ["error", { "alias": "@" }],
+        "imports-checker/layer-imports": ["error", { "alias": "@", "ignoreImportPatterns": ["**/StoreProvider"] }],
         "imports-checker/public-api-imports": ["error", { "alias": "@", "testFilesPatterns": ["**/*.test.*", "**/*.story.*", "**/StoreDecorator.tsx"] }]
     },
     "overrides": [
