@@ -13,6 +13,7 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        layout: "fullScreen",
     },
     decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
 };

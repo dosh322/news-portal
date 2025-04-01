@@ -24,7 +24,7 @@ export const ArticleSortSelector = memo(function ArticleSortSelector({
 }: ArticleSortSelectorProps) {
     const { t } = useTranslation();
 
-    const orderOptions = useMemo<SelectOption[]>(
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
         () => [
             {
                 key: "asc",
@@ -38,7 +38,7 @@ export const ArticleSortSelector = memo(function ArticleSortSelector({
         [t],
     );
 
-    const sortFieldOptions = useMemo<SelectOption[]>(
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortFields>[]>(
         () => [
             {
                 key: ArticleSortFields.CREATED,
@@ -56,33 +56,19 @@ export const ArticleSortSelector = memo(function ArticleSortSelector({
         [t],
     );
 
-    const handleSortChange = useCallback(
-        (newSort: string) => {
-            onChangeSort(newSort as ArticleSortFields);
-        },
-        [onChangeSort],
-    );
-
-    const handleOrderChange = useCallback(
-        (newOrder: string) => {
-            onChangeOrder(newOrder as SortOrder);
-        },
-        [onChangeOrder],
-    );
-
     return (
         <div className={clsx(cls.ArticleSortSelector, className)}>
             <Select
                 options={sortFieldOptions}
                 label={t("sort")}
                 selectedValue={sort}
-                onChange={handleSortChange}
+                onChange={onChangeSort}
             />
             <Select
                 options={orderOptions}
                 label={t("sort")}
                 selectedValue={order}
-                onChange={handleOrderChange}
+                onChange={onChangeOrder}
                 className={cls.order}
             />
         </div>

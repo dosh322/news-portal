@@ -77,6 +77,7 @@ export default {
         "\\.s?css$": "identity-obj-proxy",
         "\\.svg": path.resolve(__dirname, "emptyReactComponent.tsx"),
         axios: "axios/dist/node/axios.cjs",
+        "^@/(.*)$": "<rootDir>/src/$1",
     },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

@@ -1,32 +1,32 @@
 import clsx from "clsx";
-import { ChangeEvent, memo } from "react";
+import { ChangeEvent } from "react";
 import classes from "./Select.module.scss";
 
-export interface SelectOption {
-    key: string;
+export interface SelectOption<T extends string> {
+    key: T;
     value: string;
 }
 
-export interface Props {
+export interface Props<T extends string> {
     className?: string;
     label?: string;
-    options?: SelectOption[];
-    selectedValue?: string;
-    onChange?: (key: string) => void;
+    options?: SelectOption<T>[];
+    selectedValue?: T;
+    onChange?: (key: T) => void;
     readOnly?: boolean;
 }
 
-const Select = memo(function Select({
+function Select<T extends string>({
     className,
     label,
     options,
     onChange,
     selectedValue,
     readOnly,
-}: Props) {
+}: Props<T>) {
     const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
         if (onChange) {
-            onChange(e.target.value);
+            onChange(e.target.value as T);
         }
     };
 
@@ -47,6 +47,6 @@ const Select = memo(function Select({
             </select>
         </div>
     );
-});
+}
 
 export { Select };
