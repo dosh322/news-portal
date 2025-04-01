@@ -1,12 +1,12 @@
-import clsx from "clsx";
 import { userActions } from "@/entities/User";
-import { Suspense, useEffect } from "react";
-import { Outlet } from "react-router-dom";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { Navbar } from "@/widgets/Navbar";
 import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
-import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+import clsx from "clsx";
+import { Suspense, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
 function App() {
     const { theme } = useTheme();
