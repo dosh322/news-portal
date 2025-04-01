@@ -1,5 +1,5 @@
 import { articleSelectors } from "@/entities/Article";
-import { routePaths } from "@/shared/constants/router";
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/constants/router";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { HStack } from "@/shared/ui/Stack";
 import clsx from "clsx";
@@ -19,11 +19,13 @@ function ArticlePageHeader({ className }: Props) {
     const showEditBtn = useSelector(articleSelectors.selectCanEditArticle);
 
     const handleBackBtnClick = useCallback(() => {
-        navigate(routePaths.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const handleEditBtnClick = useCallback(() => {
-        navigate(`${routePaths.article}${id}/edit`);
+        if (id) {
+            navigate(getRouteArticleEdit(id));
+        }
     }, [navigate, id]);
 
     return (

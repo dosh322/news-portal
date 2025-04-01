@@ -2,7 +2,7 @@ import { getUser } from "@/entities/User";
 import { LoginModal } from "@/features/authByUserName";
 import { AvatarDropdown } from "@/features/avatarDropdown";
 import { NotificationButton } from "@/features/notificationButton";
-import { routePaths } from "@/shared/constants/router";
+import { getRouteArticleCreate } from "@/shared/constants/router";
 import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { HStack } from "@/shared/ui/Stack";
@@ -38,7 +38,7 @@ const Navbar = memo(function Navbar({ className }: NavbarProps) {
                     theme={TextTheme.INVERTED}
                     title={t("ITFeed")}
                 />
-                <AppLink to={routePaths.article_create} theme={AppLinkTheme.SECONDARY}>
+                <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
                     {t("create article")}
                 </AppLink>
                 <HStack gap="16" className={classes.actions}>

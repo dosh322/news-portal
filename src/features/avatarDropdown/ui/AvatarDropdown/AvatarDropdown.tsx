@@ -4,7 +4,7 @@ import {
     selectIsUserManager,
     userActions,
 } from "@/entities/User";
-import { routePaths } from "@/shared/constants/router";
+import { getRouteAdminPanel, getRouteProfile } from "@/shared/constants/router";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import clsx from "clsx";
@@ -42,14 +42,14 @@ export const AvatarDropdown = memo(function AvatarDropdown({
                           {
                               key: "admin",
                               value: t("admin page"),
-                              href: routePaths.admin_panel,
+                              href: getRouteAdminPanel(),
                           },
                       ]
                     : []),
                 {
                     key: "profile",
                     value: t("profile page"),
-                    href: routePaths.profile + user.id,
+                    href: getRouteProfile(user.id),
                 },
                 { key: "logout", value: t("logout"), onClick: handleLogout },
             ]}

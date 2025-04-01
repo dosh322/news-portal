@@ -10,14 +10,12 @@ export enum APP_ROUTES {
     NOT_FOUND = "any",
 }
 
-export const routePaths: Record<APP_ROUTES, string> = {
-    [APP_ROUTES.HOME]: "/",
-    [APP_ROUTES.ABOUT]: "/about",
-    [APP_ROUTES.PROFILE]: "/profile/", // + :id
-    [APP_ROUTES.ARTICLES]: "/articles",
-    [APP_ROUTES.ARTICLE]: "/articles/", // + :id
-    [APP_ROUTES.ARTICLE_CREATE]: "/articles/new",
-    [APP_ROUTES.ARTICLE_EDIT]: "/articles/:id/edit",
-    [APP_ROUTES.ADMIN_PANEL]: "/admin",
-    [APP_ROUTES.NOT_FOUND]: "*",
-};
+export const getRouteHome = () => "/";
+export const getRouteAbout = () => "/about";
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => "/articles";
+export const getRouteArticle = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => "/articles/new";
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdminPanel = () => "/admin";
+export const getRouteNotFound = () => "*";

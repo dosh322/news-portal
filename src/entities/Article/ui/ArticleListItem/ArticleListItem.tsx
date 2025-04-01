@@ -1,5 +1,5 @@
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
-import { routePaths } from "@/shared/constants/router";
+import { getRouteArticle } from "@/shared/constants/router";
 import { AppLink } from "@/shared/ui/AppLink";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
@@ -32,7 +32,7 @@ export const ArticleListItem = memo(function ArticleListItem({
     target = "_self",
 }: ArticleListItemProps) {
     const { t } = useTranslation("articlesList");
-    const articleLink = `${routePaths.article}${article.id}`;
+    const articleLink = getRouteArticle(article.id);
 
     const types = <Text text={article.type.join(", ")} className={classes.types} />;
     const views = (

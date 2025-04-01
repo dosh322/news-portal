@@ -6,7 +6,17 @@ import { ArticlesListPage } from "@/pages/ArticlesListPage";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
-import { routePaths } from "@/shared/constants/router";
+import {
+    getRouteAbout,
+    getRouteAdminPanel,
+    getRouteArticle,
+    getRouteArticleCreate,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteHome,
+    getRouteNotFound,
+    getRouteProfile,
+} from "@/shared/constants/router";
 import { AppRoutesProps } from "@/shared/types/router";
 import { RequireAuth } from "../ui/RequireAuth";
 
@@ -15,10 +25,10 @@ export const createRoutesConfig = (
     isManager: boolean,
 ): AppRoutesProps[] => {
     const routes = [
-        { path: routePaths.home, element: <HomePage /> },
-        { path: routePaths.about, element: <AboutPage /> },
+        { path: getRouteHome(), element: <HomePage /> },
+        { path: getRouteAbout(), element: <AboutPage /> },
         {
-            path: routePaths.articles,
+            path: getRouteArticles(),
             element: (
                 <RequireAuth>
                     <ArticlesListPage />
@@ -26,7 +36,7 @@ export const createRoutesConfig = (
             ),
         },
         {
-            path: `${routePaths.article}:id`,
+            path: getRouteArticle(":id"),
             element: (
                 <RequireAuth>
                     <ArticlePage />
@@ -34,7 +44,7 @@ export const createRoutesConfig = (
             ),
         },
         {
-            path: `${routePaths.article_create}`,
+            path: getRouteArticleCreate(),
             element: (
                 <RequireAuth>
                     <ArticleEditPage />
@@ -42,7 +52,7 @@ export const createRoutesConfig = (
             ),
         },
         {
-            path: `${routePaths.article_edit}`,
+            path: getRouteArticleEdit(":id"),
             element: (
                 <RequireAuth>
                     <ArticleEditPage />
@@ -50,7 +60,7 @@ export const createRoutesConfig = (
             ),
         },
         {
-            path: `${routePaths.profile}:id`,
+            path: getRouteProfile(":id"),
             element: (
                 <RequireAuth>
                     <ProfilePage />
@@ -58,14 +68,14 @@ export const createRoutesConfig = (
             ),
         },
         {
-            path: routePaths.any,
+            path: getRouteNotFound(),
             element: <NotFoundPage />,
         },
     ];
 
     if (isAdmin || isManager) {
         routes.push({
-            path: `${routePaths.admin_panel}`,
+            path: getRouteAdminPanel(),
             element: (
                 <RequireAuth>
                     <AdminPanelPage />
