@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Props, Select } from "./Select";
 
-function Wrapper(props: Props) {
+function Wrapper(props: Props<string>) {
     const [selectedValue, setSelectedValue] = useState("");
 
     const handleChange = (value: string) => {

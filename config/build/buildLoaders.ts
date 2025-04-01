@@ -23,27 +23,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     const babelLoader = buildBabelLoader({ isDev, isTsx: false });
     const TSXBabelLoader = buildBabelLoader({ isDev, isTsx: true });
 
-    // const tsLoader = {
-    //     test: /\.tsx?$/, // регулярка на поиск
-    //     use: {
-    //         loader: "ts-loader",
-    //         options: {
-    //             getCustomTransformers: () => ({
-    //                 before: [isDev && ReactRefreshTypescript()].filter(Boolean),
-    //             }),
-    //             transpileOnly: isDev,
-    //         },
-    //     }, // сам лоадер
-    //     exclude: /node_modules/,
-    // };
-
-    return [
-        // конфиг лоадеров, файлы которые выходят за рамки JS (ts, svg, scss, etc...)
-        fileLoader,
-        svgLoader,
-        babelLoader,
-        TSXBabelLoader,
-        // tsLoader,
-        cssLoaders,
-    ];
+    return [fileLoader, svgLoader, babelLoader, TSXBabelLoader, cssLoaders];
 }

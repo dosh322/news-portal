@@ -12,16 +12,18 @@ export const buildBabelLoader = ({
     use: {
         loader: "babel-loader",
         options: {
+            cacheDirectory: true,
             presets: ["@babel/preset-env"],
             plugins: [
                 ["@babel/plugin-transform-typescript", { isTsx }],
                 ["@babel/plugin-transform-runtime"],
-                isTsx && [
-                    removePropsBabelPlugin,
-                    {
-                        props: ["data-testid"],
-                    },
-                ],
+                isTsx &&
+                    !isDev && [
+                        removePropsBabelPlugin,
+                        {
+                            props: ["data-testid"],
+                        },
+                    ],
                 [
                     "i18next-extract",
                     {

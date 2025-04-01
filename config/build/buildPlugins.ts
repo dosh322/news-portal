@@ -15,15 +15,13 @@ export function buildPlugins({
     apiUrl,
     project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
+
     const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: "css/[name].[contenthash:8].css",
-            chunkFilename: "css/[name].[contenthash:8].css",
-        }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
@@ -38,9 +36,6 @@ export function buildPlugins({
                 mode: "write-references",
             },
         }),
-        new CopyPlugin({
-            patterns: [{ from: paths.locales, to: paths.buildLocales }],
-        }),
         new CircularDependencyPlugin({
             // exclude detection of files based on a RegExp
             exclude: /node_modules/,
@@ -53,6 +48,18 @@ export function buildPlugins({
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
+    }
+
+    if (isProd) {
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: "css/[name].[contenthash:8].css",
+                chunkFilename: "css/[name].[contenthash:8].css",
+            }),
+            new CopyPlugin({
+                patterns: [{ from: paths.locales, to: paths.buildLocales }],
+            }),
+        );
     }
 
     return plugins;
