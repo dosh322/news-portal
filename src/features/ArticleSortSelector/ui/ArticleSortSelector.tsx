@@ -1,9 +1,9 @@
 import { SortOrder } from "@/shared/types";
 import { Select, SelectOption } from "@/shared/ui/Select";
 import clsx from "clsx";
-import { memo, useCallback, useMemo } from "react";
+import { memo, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { ArticleSortFields } from "../../model/types";
+import { ArticleSortFields } from "@/entities/Article";
 import cls from "./ArticleSortSelector.module.scss";
 export type { SelectOption } from "@/shared/ui/Select";
 

@@ -3,7 +3,7 @@ import { Tabs } from "@/shared/ui/Tabs";
 import clsx from "clsx";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { ArticleType } from "../../model/types";
+import { ArticleType } from "@/entities/Article";
 
 interface ArticleTypeTabsProps {
     className?: string;
