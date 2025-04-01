@@ -1,10 +1,10 @@
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import { routePaths } from "@/shared/constants/router";
 import { AppLink } from "@/shared/ui/AppLink";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Avatar } from "@/shared/ui/Avatar";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { Card } from "@/shared/ui/Card";
-import { Icon } from "@/shared/ui/Icon/Icon";
+import { Icon } from "@/shared/ui/Icon";
 import { Text } from "@/shared/ui/Text";
 import clsx from "clsx";
 import { HTMLAttributeAnchorTarget, memo } from "react";

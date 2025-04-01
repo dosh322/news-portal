@@ -5,7 +5,7 @@ import {
     userActions,
 } from "@/entities/User";
 import { routePaths } from "@/shared/constants/router";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Avatar } from "@/shared/ui/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import clsx from "clsx";
 import { memo } from "react";

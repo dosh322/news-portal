@@ -1,8 +1,9 @@
+import type { TabItem } from "@/shared/ui/Tabs";
+import { Tabs } from "@/shared/ui/Tabs";
 import clsx from "clsx";
-import { ArticleType } from "../../model/types";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { TabItem, Tabs } from "@/shared/ui/Tabs/Tabs";
+import { ArticleType } from "../../model/types";
 
 interface ArticleTypeTabsProps {
     className?: string;

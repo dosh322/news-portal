@@ -1,7 +1,7 @@
 import { routePaths } from "@/shared/constants/router";
 import { AppLink } from "@/shared/ui/AppLink";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Avatar } from "@/shared/ui/Avatar";
+import { Skeleton } from "@/shared/ui/Skeleton";
 import { VStack } from "@/shared/ui/Stack";
 import { Text } from "@/shared/ui/Text";
 import clsx from "clsx";

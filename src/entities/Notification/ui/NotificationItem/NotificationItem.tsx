@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { memo } from "react";
-import { Card, CardTheme } from "@/shared/ui/Card/Card";
+import { Card, CardTheme } from "@/shared/ui/Card";
 import { Text } from "@/shared/ui/Text";
 import { Notification } from "../../model/types/notification";
 import classes from "./NotificationItem.module.scss";
