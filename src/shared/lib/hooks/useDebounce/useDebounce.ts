@@ -1,5 +1,11 @@
 import { useCallback, useRef } from "react";
 
+/**
+ * Хук, который позволяет отменять предыдущий вызов функции пока не истечет delay
+ *
+ * @param callback
+ * @param {number} delay
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useDebounce<T extends (...args: any[]) => void>(
     callback: T,

@@ -19,6 +19,9 @@ export enum ButtonSize {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     onClick?: () => void;
+    /**
+     * Тема кнопки
+     */
     theme?: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
