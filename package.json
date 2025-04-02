@@ -84,6 +84,7 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.1.7",
     "json-server": "^0.17.0",
+    "lint-staged": "^15.5.0",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.2.4",
     "react-refresh": "^0.14.0",
@@ -127,5 +128,9 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint",
+    "**/*.scss": "npx stylelint"
   }
 }
