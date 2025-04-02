@@ -5,12 +5,13 @@ import {
     userActions,
 } from "@/entities/User";
 import { getRouteAdminPanel, getRouteProfile } from "@/shared/constants/router";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Dropdown } from "@/shared/ui/Popups";
 import clsx from "clsx";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 interface AvatarDropdownProps {
     className?: string;
@@ -20,7 +21,7 @@ export const AvatarDropdown = memo(function AvatarDropdown({
     className,
 }: AvatarDropdownProps) {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isAdmin = useSelector(selectIsUserAdmin);
     const isManager = useSelector(selectIsUserManager);
     const user = useSelector(getUser);
