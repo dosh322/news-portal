@@ -1,12 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { rootReducer } from "@/app/providers/StoreProvider";
+import { buildSlice } from "@/shared/lib/store";
+import { PayloadAction } from "@reduxjs/toolkit";
 import type { ScrollRestorationSchema } from "../types/ScrollRestorationSchema";
 
 const initialState: ScrollRestorationSchema = {
     scroll: {},
 };
 
-export const scrollRestorationSlice = createSlice({
+export const scrollRestorationSlice = buildSlice({
     name: "scrollRestoration",
     initialState,
     reducers: {

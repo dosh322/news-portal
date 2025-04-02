@@ -53,7 +53,7 @@ export const AvatarDropdown = memo(function AvatarDropdown({
                 },
                 { key: "logout", value: t("logout"), onClick: handleLogout },
             ]}
-            trigger={<Avatar size={30} src={user.avatar} />}
+            trigger={<Avatar fallbackInverted size={30} src={user.avatar} />}
         />
     );
 });

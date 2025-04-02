@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { rootReducer } from "@/app/providers/StoreProvider";
+import { buildSlice } from "@/shared/lib/store";
 import { fetchArticle } from "../services/fetchArticleById";
 import { ArticleSchema } from "../types";
 
@@ -9,7 +9,7 @@ const initialState: ArticleSchema = {
     error: undefined,
 };
 
-export const articleSlice = createSlice({
+export const articleSlice = buildSlice({
     name: "article",
     initialState,
     reducers: {},

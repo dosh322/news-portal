@@ -1,10 +1,12 @@
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
 import { getRouteArticle } from "@/shared/constants/router";
+import { AppImage } from "@/shared/ui/AppImage";
 import { AppLink } from "@/shared/ui/AppLink";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { Card } from "@/shared/ui/Card";
 import { Icon } from "@/shared/ui/Icon";
+import { Skeleton } from "@/shared/ui/Skeleton";
 import { Text } from "@/shared/ui/Text";
 import clsx from "clsx";
 import { HTMLAttributeAnchorTarget, memo } from "react";
@@ -57,7 +59,12 @@ export const ArticleListItem = memo(function ArticleListItem({
                     </div>
                     <Text title={article.title} className={classes.title} />
                     {types}
-                    <img src={article.img} className={classes.img} alt={article.title} />
+                    <AppImage
+                        src={article.img}
+                        className={classes.img}
+                        alt={article.title}
+                        fallback={<Skeleton width="100%" height={250} />}
+                    />
                     {textBlock && (
                         <ArticleTextBlock
                             block={textBlock}
@@ -83,7 +90,12 @@ export const ArticleListItem = memo(function ArticleListItem({
         >
             <Card className={classes.card}>
                 <div className={classes.imageWrapper}>
-                    <img alt={article.title} src={article.img} className={classes.img} />
+                    <AppImage
+                        src={article.img}
+                        className={classes.img}
+                        alt={article.title}
+                        fallback={<Skeleton width={200} height={200} />}
+                    />
                     <Text text={article.createdAt} className={classes.date} />
                 </div>
                 <div className={classes.infoWrapper}>
